@@ -1,7 +1,7 @@
 # Blog API
 
 A full-stack RESTful blog API that allows users to create, read, update, and delete blog posts.  
-It includes two React front-end applications, one for the CMS (Content Management System) and one for the client-facing side.  
+It includes two React front-end applications, one for the [CMS (Content Management System)](https://github.com/Waldorfio/blog-cms#readme) and one for the [client-facing side](https://github.com/Waldorfio/blog-api#readme).  
 The back-end is built with Node.js, Express and MongoDB.
 
 ## [Live Link 👈]()
