@@ -1,10 +1,12 @@
 # Blog API
 
 A full-stack RESTful blog API that allows users to create, read, update, and delete blog posts.  
-It includes two React front-end applications, one for the [CMS (Content Management System)](https://github.com/Waldorfio/blog-cms#readme) and one for the [client-facing side](https://github.com/Waldorfio/blog-api#readme).  
+It includes two React front-end applications, one for the CMS (Content Management System) and one for the client-facing side.  
 The back-end is built with Node.js, Express and MongoDB.
 
 ## [Live Link 👈]()
+#### [Link to CMS](https://github.com/Waldorfio/blog-cms#readme)
+#### [Link to API](https://github.com/Waldorfio/blog-api#readme)
 
 ### Features
 - Users can create, read, update and delete posts through CMS and client front-end
@@ -34,7 +36,7 @@ The API has the following endpoints:
 - `DELETE /posts/:id`: Delete a specific post by ID
 
 ## Local Installation
-1.	Clone the repository `git clone https://github.com/Waldorfio/wheres-wally.git`
+1.	Clone the repository `git clone https://github.com/Waldorfio/blog-client.git`
 2.	Install the dependencies `npm install`
 3.	Start the web server using `npm run dev`
 4.	Open the CMS in your browser at `http://localhost:3001` and Client at `http://localhost:3000`
