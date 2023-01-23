@@ -1,1 +1,61 @@
+* {
+    font-family: Arial, sans-serif;
+    user-select: none;   /* Disables text highlighting. Individually removed later for to-do items */
+    text-rendering: optimizeLegibility; /* For safari */
+}
+body,html {
+    margin: 0;
+    padding: 0;
+}
+a {    /* Removes default styling for links, and React Links */
+    text-decoration: none;
+    color: inherit;
+}
+/*-----------------*/
 
+/* HEADER */
+h1 {
+    font-weight: 700;
+}
+header {
+    position: sticky;
+    background-color: #fafafa;
+    padding: 20px;
+    padding-left: 40px;
+    text-align: left;
+    border-bottom: 1px solid rgb(185, 185, 185);
+}
+/* CONTENT */
+#content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.post h2 {
+    margin: 0;
+    font-size: 24px;
+}
+.post .date {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+#footer {
+    display: grid;
+    background-color: #e0e0e0;
+    color: rgb(0, 0, 0);
+    font-size: 1.1em;
+    font-weight: 700;
+    text-align: center;
+    align-content: center;
+}
