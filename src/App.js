@@ -1,3 +1,6 @@
+import React, { useState } from 'react'
+import './styles/style.css';
+
 function App() {
   return (
     <div className="App">
@@ -21,9 +24,8 @@ function App() {
 
       </div>
 
-      <footer id="footer">
-          <span id='footer-title'>Copyright © 2022 Waldorfio&nbsp;&nbsp;&nbsp;</span>
-      </footer>
+      < Footer />
+
     </div>
   );
 }
