@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import './styles/style.css';
+import Footer from './components/footer'
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>Wally's Blog</h1>
-      </header>
+    
+      < Header />
 
       <div id="content">
 
