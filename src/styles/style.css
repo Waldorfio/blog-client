@@ -36,10 +36,11 @@ header > button {
 /* CONTENT */
 #content {
     display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 10px;
-    max-width: 1000px; /* The max width of the grid container */
+    align-items: center;
+    justify-items: center;
+
     margin: 0 auto;
     padding: 20px;
 }
