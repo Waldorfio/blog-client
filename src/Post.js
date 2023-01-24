@@ -20,42 +20,42 @@ function Post() {
       <div id="like-post">
           Impressed?<br>
           Consider giving this post a like.
-          <span class="material-symbols-outlined">recommend</span>
+          <span className="material-symbols-outlined">recommend</span>
       </div>
 
       <div id="submit-comment">
-          <h2 class="all-posts">Comments</h2>
+          <h2 className="all-posts">Comments</h2>
           <span>To submit a comment you must sign up</span>
           <button>Log in</button>
           <button>Register</button>
       </div>
 
       <div id="content">
-          <div class="post">
+          <div className="post">
               <h2>Someone says...</h2>
-              <div class="content-snapshot">
+              <div className="content-snapshot">
                   <p>Great content</p>
               </div>
-              <div class="msg-count">
-                  <div class="msg-number">8</div>
-                  <span class="material-symbols-outlined">thumb_up</span>
+              <div className="msg-count">
+                  <div className="msg-number">8</div>
+                  <span className="material-symbols-outlined">thumb_up</span>
               </div>
-              <div class="post-details">
-                  <div class="date">January 23, 2023</div>
+              <div className="post-details">
+                  <div className="date">January 23, 2023</div>
               </div>
           </div>
 
-          <div class="post">
+          <div className="post">
               <h2>Someone says...</h2>
-              <div class="content-snapshot">
+              <div className="content-snapshot">
                   <p>Great content</p>
               </div>
-              <div class="msg-count">
-                  <div class="msg-number">8</div>
-                  <span class="material-symbols-outlined">thumb_up</span>
+              <div className="msg-count">
+                  <div className="msg-number">8</div>
+                  <span className="material-symbols-outlined">thumb_up</span>
               </div>
-              <div class="post-details">
-                  <div class="date">January 23, 2023</div>
+              <div className="post-details">
+                  <div className="date">January 23, 2023</div>
               </div>
           </div>
 

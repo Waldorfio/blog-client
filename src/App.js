@@ -13,55 +13,55 @@ function App() {
           Welcome to my blog
       </div>
 
-      <h2 class="all-posts">All Posts</h2>
+      <h2 className="all-posts">All Posts</h2>
     
       <div id="content">
 
-        <div class="post">
+        <div className="post">
             <h2>My first blog post</h2>
-            <div class="content-snapshot">
+            <div className="content-snapshot">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna id faucibus faucibus, tellus est malesuada ipsum, non congue justo quam euismod purus. Sed luctus, augue id pellentesque egestas, libero nibh euismod nibh, non pharetra ligula neque id mi. </p>
                 <a href="/">Read more</a>
             </div>
-            <div class="msg-count">
-                <div class="msg-number">8</div>
-                <span class="material-symbols-outlined">forum</span>
+            <div className="msg-count">
+                <div className="msg-number">8</div>
+                <span className="material-symbols-outlined">forum</span>
             </div>
-            <div class="post-details">
-                <span class="author">waldorf</span>
-                <div class="date">January 23, 2023</div>
+            <div className="post-details">
+                <span className="author">waldorf</span>
+                <div className="date">January 23, 2023</div>
             </div>
         </div>
 
-        <div class="post">
+        <div className="post">
             <h2>My first blog post</h2>
-            <div class="content-snapshot">
+            <div className="content-snapshot">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna id faucibus faucibus, tellus est malesuada ipsum, non congue justo quam euismod purus. Sed luctus, augue id pellentesque egestas, libero nibh euismod nibh, non pharetra ligula neque id mi. </p>
                 <a href="/">Read more</a>
             </div>
-            <div class="msg-count">
-                <div class="msg-number">8</div>
-                <span class="material-symbols-outlined">forum</span>
+            <div className="msg-count">
+                <div className="msg-number">8</div>
+                <span className="material-symbols-outlined">forum</span>
             </div>
-            <div class="post-details">
-                <span class="author">waldorf</span>
-                <div class="date">January 23, 2023</div>
+            <div className="post-details">
+                <span className="author">waldorf</span>
+                <div className="date">January 23, 2023</div>
             </div>
         </div>
     
-        <div class="post">
+        <div className="post">
             <h2>My first blog post</h2>
-            <div class="content-snapshot">
+            <div className="content-snapshot">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna id faucibus faucibus, tellus est malesuada ipsum, non congue justo quam euismod purus. Sed luctus, augue id pellentesque egestas, libero nibh euismod nibh, non pharetra ligula neque id mi. </p>
                 <a href="/">Read more</a>
             </div>
-            <div class="msg-count">
-                <div class="msg-number">8</div>
-                <span class="material-symbols-outlined">forum</span>
+            <div className="msg-count">
+                <div className="msg-number">8</div>
+                <span className="material-symbols-outlined">forum</span>
             </div>
-            <div class="post-details">
-                <span class="author">waldorf</span>
-                <div class="date">January 23, 2023</div>
+            <div className="post-details">
+                <span className="author">waldorf</span>
+                <div className="date">January 23, 2023</div>
             </div>
         </div>
 
