@@ -20,17 +20,16 @@ function App() {
     }
   }
 
-
   return (
     <div className="App">
 
-      <Header />
+      <Header
+        handleLogin={handleLogin}
+      />
 
       <div id="welcome">
         Welcome to my blog
       </div>
-
-      <button onClick={handleLogin}>Log in</button>
 
       <form action="" method="post" id="log-in" ref={loginRef}>
         <label htmlFor="username">Username:</label>
