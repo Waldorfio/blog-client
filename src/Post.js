@@ -13,10 +13,10 @@ function Post() {
       <div id="detailed-post">
         <h2>Giant Red Star</h2>
         <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing 
-          elit. Sed auctor, magna id faucibus faucibus, tellus 
-          est malesuada ipsum, non congue justo quam euismod 
-          purus. Sed luctus, augue id pellentesque egestas, 
+          Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Sed auctor, magna id faucibus faucibus, tellus
+          est malesuada ipsum, non congue justo quam euismod
+          purus. Sed luctus, augue id pellentesque egestas,
           libero nibh euismod nibh, non pharetra ligula neque id mi.
         </span>
       </div>
