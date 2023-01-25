@@ -10,18 +10,20 @@ function Register() {
 
       <Header />
 
-      <form action='' method='post' id="register">
-        <label for='username'>Username:</label>
-        <input type='text' id='username' name='username'></input>
+      <form action="" method="post" id="register">
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" name="username" />
 
-        <label for='email'>Email:</label>
-        <input type='email' id='emai' name='emai'></input>
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="emai" name="emai" />
 
-        <label for='password'>Password:</label>
-        <input type='password' id='password' name='password'></input>
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" />
 
-        <label for='password_confirm'>Confirm Password:</label>
-        <input type='password' id='password_confirm' name='password_confirm'></input>
+        <label htmlFor="password_confirm">Confirm Password:</label>
+        <input type="password" id="password_confirm" name="password_confirm" />
+
+        <input type="submit" value="Register" />
       </form>
 
       <Footer />
