@@ -154,7 +154,7 @@ button:hover {
     padding: 1em;
     border: 1px solid #ccc;
 }
-#register > label, #login-popup > label {
+#register > label, #log-in > label {
     font-weight: bold;
     display: block;
     margin-bottom: 0.5em;
@@ -176,11 +176,24 @@ input[type='submit']:hover {
     background-color: #3e8e41;
 }
 
-#login-popup {
-    display: none; /* Hide login popup by default */
-    position: static;
-    top: 0;
+#log-in {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 7px;
+
+    background-color:white;
+    padding: 15px;
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
 }
+
+
 
 /* FOOTER */
 #footer {
