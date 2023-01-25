@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
+  // State Decalarations
+
+  // DOM Handler functions
+  const loginRef = useRef(null);
+
+  function handleLogin() {
+    const loginPopup = loginRef.current;
+
+    if (loginPopup.style.display === 'none') {
+      loginPopup.style.display = '';
+    } else {
+      loginPopup.style.display = 'none';
+    }
+  }
+
+
   return (
     <div className="App">
 
@@ -13,6 +29,18 @@ function App() {
       <div id="welcome">
         Welcome to my blog
       </div>
+
+      <button onClick={handleLogin}>Log in</button>
+
+      <form action="" method="post" id="log-in" ref={loginRef}>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="username" name="username" />
+
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" />
+
+        <input type="submit" value="Log In" />
+      </form>
 
       <h2 className="all-posts">All Posts</h2>
 
