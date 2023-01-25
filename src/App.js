@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -27,7 +28,7 @@ function App() {
               augue id pellentesque egestas, libero nibh euismod nibh,
               non pharetra ligula neque id mi.
             </p>
-            <a href="/">Read more</a>
+            <Link to="Post">Read more</Link>
           </div>
           <div className="msg-count">
             <div className="msg-number">8</div>
@@ -49,7 +50,7 @@ function App() {
               augue id pellentesque egestas, libero nibh euismod nibh,
               non pharetra ligula neque id mi.
             </p>
-            <a href="/">Read more</a>
+            <Link to="Post">Read more</Link>
           </div>
           <div className="msg-count">
             <div className="msg-number">8</div>
@@ -71,7 +72,7 @@ function App() {
               augue id pellentesque egestas, libero nibh euismod nibh,
               non pharetra ligula neque id mi.
             </p>
-            <a href="/">Read more</a>
+            <Link to="Post">Read more</Link>
           </div>
           <div className="msg-count">
             <div className="msg-number">8</div>
