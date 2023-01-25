@@ -147,6 +147,35 @@ button:hover {
     user-select: none;
 }
 
+/* REGISTER */
+#register {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+#register > label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+}
+input[type='text'], input[type='email'], input[type='password'] {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+}
+input[type='submit'] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+}
+input[type='submit']:hover {
+    background-color: #3e8e41;
+}
+
 /* FOOTER */
 #footer {
     display: grid;
