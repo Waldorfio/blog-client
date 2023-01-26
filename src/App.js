@@ -11,17 +11,18 @@ function App() {
   const [errors, setErrors] = useState([]);
 
   // API Calls
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' });
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' })
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-        console.log(data);
-      })
-      .catch((err) => {
-        setErrors(err);
-        console.log(err);
-      });
+    fetchUsers();
   }, []);
 
   // DOM Handler functions
@@ -56,12 +57,6 @@ function App() {
             />
           )) }
         </div>
-
-        {/* <div id="errors">
-          {errors.map((err) => (
-            <div className="err">{err}</div>
-          ))}
-        </div> */}
 
       </div>
 
