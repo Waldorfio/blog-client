@@ -1,11 +1,28 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import User from './components/User';
 
 function App() {
   // State Decalarations
+  const [users, setUsers] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  // API Calls
+  useEffect(() => {
+    fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' })
+      .then((response) => response.json())
+      .then((data) => {
+        setUsers(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        setErrors(err);
+        console.log(err);
+      });
+  }, []);
 
   // DOM Handler functions
   const loginRef = useRef(null);
@@ -29,6 +46,23 @@ function App() {
 
       <div id="welcome">
         Welcome to my blog
+        Here is a list of all the users:
+
+        <div id="users">
+          { users.map((user) => (
+            <User
+              username={user.username}
+              password={user.password}
+            />
+          )) }
+        </div>
+
+        {/* <div id="errors">
+          {errors.map((err) => (
+            <div className="err">{err}</div>
+          ))}
+        </div> */}
+
       </div>
 
       <form action="" method="post" id="log-in" ref={loginRef}>
