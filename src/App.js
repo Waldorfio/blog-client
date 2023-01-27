@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import './styles/style.css';
+import './styles/style2.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import User from './components/User';
