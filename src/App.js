@@ -25,28 +25,6 @@ function App() {
     }
   };
 
-  // const addUser = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     // Send post request
-  //     const res = await fetch('https://blog-api-production-6aeb.up.railway.app/users/create', {
-  //       method: 'POST',
-  //       headers: { 'Content-type': 'application/json; charset=UTF-8' },
-  //       body: JSON.stringify(formData),
-  //     });
-  //     // Check data
-  //     const data = await res.json();
-  //     if (data.success) {
-  //       console.log('registration successful');
-  //       setUsers([...users, data.user]); // Append the new user to the user state
-  //     } else {
-  //       console.log('data was not a success');
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
   // Call API call functions
   useEffect(() => {
     fetchUsers();
@@ -82,7 +60,11 @@ function App() {
         <input type="submit" value="Log In" />
       </form>
 
-      <Outlet context={[formData, setFormData, users, setUsers]} />
+      <Outlet context={[
+        formData, setFormData,
+        users, setUsers,
+      ]}
+      />
 
       <Footer />
 
