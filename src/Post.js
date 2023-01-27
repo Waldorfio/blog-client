@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
-import './styles/style.css';
-import './styles/style2.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import React from 'react';
 
 function Post() {
   return (
     <div className="Post">
-
-      <Header />
 
       <div id="detailed-post">
         <h2>Giant Red Star</h2>
@@ -65,8 +59,6 @@ function Post() {
         </div>
 
       </div>
-
-      <Footer />
 
     </div>
   );
