@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,19 +8,46 @@ import User from './components/User';
 function App() {
   // State Decalarations
   const [users, setUsers] = useState([]);
-  const [errors, setErrors] = useState([]);
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
 
-  // API Calls
+  // Create API call functions
   const fetchUsers = async () => {
     try {
-      const response = await fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' });
-      const data = await response.json();
+      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' });
+      const data = await res.json();
       setUsers(data);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
     }
   };
 
+  // const addUser = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     // Send post request
+  //     const res = await fetch('https://blog-api-production-6aeb.up.railway.app/users/create', {
+  //       method: 'POST',
+  //       headers: { 'Content-type': 'application/json; charset=UTF-8' },
+  //       body: JSON.stringify(formData),
+  //     });
+  //     // Check data
+  //     const data = await res.json();
+  //     if (data.success) {
+  //       console.log('registration successful');
+  //       setUsers([...users, data.user]); // Append the new user to the user state
+  //     } else {
+  //       console.log('data was not a success');
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+
+  // Call API call functions
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -45,21 +72,6 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <div id="welcome">
-        Welcome to my blog
-        Here is a list of all the users:
-
-        <div id="users">
-          { users.map((user) => (
-            <User
-              username={user.username}
-              password={user.password}
-            />
-          )) }
-        </div>
-
-      </div>
-
       <form action="" method="post" id="log-in" ref={loginRef}>
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" name="username" />
@@ -70,77 +82,7 @@ function App() {
         <input type="submit" value="Log In" />
       </form>
 
-      <h2 className="all-posts">All Posts</h2>
-
-      <div id="content">
-
-        <div className="post">
-          <h2>My first blog post</h2>
-          <div className="content-snapshot">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed auctor, magna id faucibus faucibus, tellus est malesuada
-              ipsum, non congue justo quam euismod purus. Sed luctus,
-              augue id pellentesque egestas, libero nibh euismod nibh,
-              non pharetra ligula neque id mi.
-            </p>
-            <Link to="Post">Read more</Link>
-          </div>
-          <div className="msg-count">
-            <div className="msg-number">8</div>
-            <span className="material-symbols-outlined">forum</span>
-          </div>
-          <div className="post-details">
-            <span className="author">waldorf</span>
-            <div className="date">January 23, 2023</div>
-          </div>
-        </div>
-
-        <div className="post">
-          <h2>My first blog post</h2>
-          <div className="content-snapshot">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed auctor, magna id faucibus faucibus, tellus est malesuada
-              ipsum, non congue justo quam euismod purus. Sed luctus,
-              augue id pellentesque egestas, libero nibh euismod nibh,
-              non pharetra ligula neque id mi.
-            </p>
-            <Link to="Post">Read more</Link>
-          </div>
-          <div className="msg-count">
-            <div className="msg-number">8</div>
-            <span className="material-symbols-outlined">forum</span>
-          </div>
-          <div className="post-details">
-            <span className="author">waldorf</span>
-            <div className="date">January 23, 2023</div>
-          </div>
-        </div>
-
-        <div className="post">
-          <h2>My first blog post</h2>
-          <div className="content-snapshot">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed auctor, magna id faucibus faucibus, tellus est malesuada
-              ipsum, non congue justo quam euismod purus. Sed luctus,
-              augue id pellentesque egestas, libero nibh euismod nibh,
-              non pharetra ligula neque id mi.
-            </p>
-            <Link to="Post">Read more</Link>
-          </div>
-          <div className="msg-count">
-            <div className="msg-number">8</div>
-            <span className="material-symbols-outlined">forum</span>
-          </div>
-          <div className="post-details">
-            <span className="author">waldorf</span>
-            <div className="date">January 23, 2023</div>
-          </div>
-        </div>
-
-      </div>
+      <Outlet context={[formData, setFormData, users, setUsers]} />
 
       <Footer />
 
