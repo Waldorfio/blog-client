@@ -13,7 +13,6 @@ function Post() {
       const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}`, { method: 'GET' });
       const data = await res.json();
       setPost(data);
-      console.log(data);
     } catch (err) {
       console.error(err);
     }
