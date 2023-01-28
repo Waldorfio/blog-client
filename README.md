@@ -22,6 +22,9 @@ The back-end is built with Node.js, Express and MongoDB.
 - To provide a client-facing side for users to view and read the blog posts
 
 #### Challenges Faced
+- Configuring the MongoDB database and connecting it to the Express backend
+- Implementing and handling CORS (Cross-Origin Resource Sharing) errors
+- Managing API calls in the React frontend via hooks
 - Managing the state of the application in a way that allows for easy updates and deletion of posts
 - Ensuring that the API is secure and protected against malicious attacks
 - Implementing user authentication and authorization was challenging due to the complexity of the processes and the need to ensure the security of the data.
