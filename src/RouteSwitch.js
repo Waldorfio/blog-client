@@ -12,9 +12,7 @@ function RouteSwitch() {
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="register" element={<Register />} />
-          <Route path="posts" element={<Home />}>
-            <Route path=":id" element={<Post />} />
-          </Route>
+          <Route path="posts/:id" element={<Post />} />
         </Route>
       </Routes>
     </BrowserRouter>
