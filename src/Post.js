@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 function Post() {
+  // State Decalarations
+  const [post, setPost] = useState([]);
+
+  const { id } = useParams();
+
+  // Create API call functions
+  const fetchPostData = async () => {
+    try {
+      const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}`, { method: 'GET' });
+      const data = await res.json();
+      setPost(data);
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Call API call functions
+  useEffect(() => {
+    fetchPostData();
+  }, [id]);
+
   return (
     <div className="Post">
 
       <div id="detailed-post">
-        <h2>Giant Red Star</h2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Sed auctor, magna id faucibus faucibus, tellus
-          est malesuada ipsum, non congue justo quam euismod
-          purus. Sed luctus, augue id pellentesque egestas,
-          libero nibh euismod nibh, non pharetra ligula neque id mi.
-        </span>
+        <h2>{post.title}</h2>
+        <span>{post.content}</span>
       </div>
 
       <div id="like-post">
