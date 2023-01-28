@@ -38,7 +38,7 @@ function Home() {
               <p>
                 {post.content}
               </p>
-              <Link to="posts/{post.id}">Read more</Link>
+              <Link to={`/posts/${post._id}`}>Read more</Link>
             </div>
             <div className="msg-count">
               <div className="msg-number">8</div>
