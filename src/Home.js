@@ -1,8 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useOutletContext, Link } from 'react-router-dom';
 
 function Home() {
+  const [users, setUsers, user, isLoggedIn] = useOutletContext();
+
   // State Decalarations
   const [posts, setPosts] = useState([]);
 
@@ -24,9 +26,20 @@ function Home() {
 
   return (
     <div id="home">
-      <div id="welcome">
-        You are not logged in. Log in to enjoy benefits.
+      { isLoggedIn ? (
+        // eslint-disable-next-line react/jsx-one-expression-per-line
+        <div id="greeting">Welcome, {user.username}!</div>
+      ) : (
+        <div id="greeting">Welcome Guest. Please log in to comment on posts.</div>
+      )}
+
+      {/* <div id="testing">
+        {users.map((u) => (
+          <p>{u.username}</p>
+        ))}
       </div>
+
+      <h2>{user.username}</h2> */}
 
       <h2 className="all-posts">All Posts</h2>
 
