@@ -4,7 +4,7 @@ A full-stack RESTful blog API that allows users to create, read, update, and del
 It includes two React front-end applications, one for the CMS (Content Management System) and one for the client-facing side.  
 The back-end is built with Node.js, Express and MongoDB.
 
-## [Live Link 👈]()
+## [Live Link 👈](https://blog-client-8agn.vercel.app/)
 #### [Link to CMS](https://github.com/Waldorfio/blog-cms#readme)
 #### [Link to API](https://github.com/Waldorfio/blog-api#readme)
 
@@ -32,11 +32,23 @@ The back-end is built with Node.js, Express and MongoDB.
 
 ## API Endpoints
 The API has the following endpoints:
+### Posts
 - `GET /posts`: Retrieve all posts
 - `GET /posts/:id`: Retrieve a specific post by ID
 - `POST /posts`: Create a new post
 - `PUT /posts/:id`: Update a specific post by ID
 - `DELETE /posts/:id`: Delete a specific post by ID
+### Messages
+- `GET /posts/:id`: Retrieve all messages on a specific post by ID
+- `POST /posts/:id/msg/create`: Create a new message
+- `PUT /posts/:id/msg/:id`: Update a specific message by ID
+- `DELETE /posts/:id/msg/:id`: Delete a specific message by ID
+### Users
+- `GET /users`: Retrieve all users
+- `GET /users/:id`: Retrieve a specific user by ID
+- `POST /users`: Create a new user
+- `PUT /users/:id`: Update a specific user by ID
+- `DELETE /users/:id`: Delete a specific user by ID
 
 ## Local Installation
 1.	Clone the repository `git clone https://github.com/Waldorfio/blog-client.git`
