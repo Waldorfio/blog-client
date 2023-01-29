@@ -28,18 +28,16 @@ function Home() {
     <div id="home">
       { isLoggedIn ? (
         // eslint-disable-next-line react/jsx-one-expression-per-line
-        <div id="greeting">Welcome, {user.username}!</div>
+        <div id="welcome">Welcome, {user.username}!</div>
       ) : (
-        <div id="greeting">Welcome Guest. Please log in to comment on posts.</div>
+        <div id="welcome">Welcome Guest. Please log in to comment on posts.</div>
       )}
 
-      {/* <div id="testing">
+      {/* <div id="all-users">
         {users.map((u) => (
           <p>{u.username}</p>
         ))}
-      </div>
-
-      <h2>{user.username}</h2> */}
+      </div> */}
 
       <h2 className="all-posts">All Posts</h2>
 
