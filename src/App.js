@@ -8,13 +8,28 @@ import User from './components/User';
 
 function App() {
   // State Decalarations
-  const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({
+  const [user, setUser] = useState({ // The logged in user
     username: '',
-    email: '',
     password: '',
   });
+  const [isLoggedIn, setLogIn] = useState(false);
+  const [users, setUsers] = useState([]); // Stores GET response of all users in db
 
+  // State Handlers
+  const loginSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    setUser({
+      username: formData.get('username'),
+      password: formData.get('password'),
+    });
+    setLogIn(true); // set log in status to true
+    console.log('user logged in');
+    console.log(`username: ${user.username}`);
+    console.log(`password: ${user.password}`);
+  };
+
+  // -- API CALL (GET) for all users
   // Create API call functions
   const fetchUsers = async () => {
     try {
@@ -25,7 +40,6 @@ function App() {
       console.error(err);
     }
   };
-
   // Call API call functions
   useEffect(() => {
     fetchUsers();
@@ -34,7 +48,7 @@ function App() {
   // DOM Handler functions
   const loginRef = useRef(null);
 
-  function handleLogin() {
+  function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
 
     if (loginPopup.style.display === 'none') {
@@ -51,7 +65,7 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <form action="" method="post" id="log-in" ref={loginRef}>
+      <form onSubmit={loginSubmit} action="" method="post" id="log-in" ref={loginRef}>
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" name="username" />
 
@@ -61,10 +75,11 @@ function App() {
         <input type="submit" value="Log In" />
       </form>
 
-      <Outlet context={[
-        formData, setFormData,
-        users, setUsers,
-      ]}
+      <Outlet
+        context={[
+          users, setUsers, // Passing all users, for registration put
+          user, isLoggedIn // Passing on current logged in user
+        ]}
       />
 
       <Footer />
