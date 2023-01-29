@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 function Register() {
-  const [formData, setFormData, users, setUsers] = useOutletContext();
+  const [users, setUsers] = useOutletContext();
+
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
 
   const addUser = async (e) => {
     e.preventDefault();
