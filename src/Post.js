@@ -39,7 +39,7 @@ function Post() {
   // Call API call functions
   useEffect(() => {
     fetchMsgs();
-  }, []);
+  }, [msgs]);
 
   const msgSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +73,6 @@ function Post() {
       console.error(err);
     }
   };
-
   // Call API call functions
   useEffect(() => {
     fetchPostData();
