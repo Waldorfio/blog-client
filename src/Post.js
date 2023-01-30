@@ -78,6 +78,9 @@ function Post() {
     fetchPostData();
   }, [id]);
 
+  // Filter messages based on current post id
+  const filterMsgs = msgs.filter((msg) => msg.postid === id);
+
   return (
     <div className="Post">
 
@@ -121,7 +124,7 @@ function Post() {
 
       <div id="content">
 
-        { msgs.map((msg) => (
+        { filterMsgs.map((msg) => (
           <div className="post">
             <h2>{msg.username}</h2>
             <div className="content-snapshot">
