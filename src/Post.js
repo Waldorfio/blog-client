@@ -24,6 +24,23 @@ function Post() {
   }, [user]); // referencing the context here
 
   // State Handlers
+
+  // -- API CALL (GET) for all messages
+  // Create API call functions
+  const fetchMsgs = async () => {
+    try {
+      const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}/msg`, { method: 'GET' });
+      const data = await res.json();
+      setMsgs(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  // Call API call functions
+  useEffect(() => {
+    fetchMsgs();
+  }, []);
+
   const msgSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -104,33 +121,22 @@ function Post() {
       )}
 
       <div id="content">
-        <div className="post">
-          <h2>Someone says...</h2>
-          <div className="content-snapshot">
-            <p>Great content</p>
-          </div>
-          <div className="msg-count">
-            <div className="msg-number">8</div>
-            <span className="material-symbols-outlined">thumb_up</span>
-          </div>
-          <div className="post-details">
-            <div className="date">January 23, 2023</div>
-          </div>
-        </div>
 
-        <div className="post">
-          <h2>Someone says...</h2>
-          <div className="content-snapshot">
-            <p>Great content</p>
+        { msgs.map((msg) => (
+          <div className="post">
+            <h2>{msg.username}</h2>
+            <div className="content-snapshot">
+              <p>{msg.text}</p>
+            </div>
+            <div className="msg-count">
+              <div className="msg-number">8</div>
+              <span className="material-symbols-outlined">thumb_up</span>
+            </div>
+            <div className="post-details">
+              <div className="date">{msg.date}</div>
+            </div>
           </div>
-          <div className="msg-count">
-            <div className="msg-number">8</div>
-            <span className="material-symbols-outlined">thumb_up</span>
-          </div>
-          <div className="post-details">
-            <div className="date">January 23, 2023</div>
-          </div>
-        </div>
+        )) }
 
       </div>
 
