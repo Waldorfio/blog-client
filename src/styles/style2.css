@@ -17,7 +17,10 @@
     border-top: 1px solid grey;
     border-bottom: 1px solid grey;
 }
-#submit-comment {
+#comment-form {
+}
+
+#comment-noform {
     display: grid;
     grid-template-rows: repeat(3, 40px);
     gap: 5px;
