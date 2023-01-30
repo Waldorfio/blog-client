@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 
@@ -10,11 +11,19 @@ function Post() {
   const [post, setPost] = useState([]);
   const [msgs, setMsgs] = useState([]);
   const [formData, setFormData] = useState({ // Form data for message form
+    postid: id,
+    username: user.username, // This user.username is updated via the useEffect hook below
+    date: Date.now,
     text: '',
   });
 
-  // State Handlers
+  useEffect(() => { // hook needed to update the state everytime the context changes
+    setFormData({
+      username: user.username,
+    });
+  }, [user]); // referencing the context here
 
+  // State Handlers
   const msgSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -28,7 +37,7 @@ function Post() {
       const data = await res.json();
       if (data.success) {
         console.log('message posted');
-        setMsgs([...msgs, data]); // Append the new user to the user state
+        setMsgs([...msgs, data]); // Append the new msg to the msg state
       } else {
         console.log('data was not a success');
       }
@@ -72,28 +81,10 @@ function Post() {
         <div id="comment-form">
           <h2 className="all-posts">Comments</h2>
           <span>
-
-            , submit a comment below!
+            {user.username}, submit a comment below!
           </span>
 
           <form onSubmit={msgSubmit}>
-            {/* <input
-              type="hidden"
-              name="post"
-              value={id}
-            />
-
-            <input
-              type="hidden"
-              name="user"
-              value=""
-            />
-
-            <input
-              type="hidden"
-              name="date"
-              value={Date.now}
-            /> */}
 
             <label htmlFor="text">Message:</label>
             <textarea
@@ -108,9 +99,7 @@ function Post() {
       ) : (
         <div id="comment-noform">
           <h2 className="all-posts">Comments</h2>
-          <span>To submit a comment you must sign up</span>
-          <button>Log in</button>
-          <button>Register</button>
+          <span>To submit a comment you must log in, or sign up</span>
         </div>
       )}
 
