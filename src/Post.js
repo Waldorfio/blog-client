@@ -1,11 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useOutletContext, useParams } from 'react-router-dom';
 
 function Post() {
+  const { id } = useParams(); // Extract post id from url
+
+  // Outlet prop Decalarations
+  const [users, setUsers, user, isLoggedIn] = useOutletContext();
   // State Decalarations
   const [post, setPost] = useState([]);
+  const [msgs, setMsgs] = useState([]);
+  const [formData, setFormData] = useState({ // Form data for message form
+    text: '',
+  });
 
-  const { id } = useParams();
+  // State Handlers
+
+  const msgSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Send post request
+      const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}/msg/create`, {
+        method: 'POST',
+        headers: { 'Content-type': 'application/json; charset=UTF-8' },
+        body: JSON.stringify(formData),
+      });
+      // Check data
+      const data = await res.json();
+      if (data.success) {
+        console.log('message posted');
+        setMsgs([...msgs, data]); // Append the new user to the user state
+      } else {
+        console.log('data was not a success');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   // Create API call functions
   const fetchPostData = async () => {
@@ -38,12 +68,51 @@ function Post() {
         <span className="material-symbols-outlined">recommend</span>
       </div>
 
-      <div id="submit-comment">
-        <h2 className="all-posts">Comments</h2>
-        <span>To submit a comment you must sign up</span>
-        <button>Log in</button>
-        <button>Register</button>
-      </div>
+      { isLoggedIn ? (
+        <div id="comment-form">
+          <h2 className="all-posts">Comments</h2>
+          <span>
+
+            , submit a comment below!
+          </span>
+
+          <form onSubmit={msgSubmit}>
+            {/* <input
+              type="hidden"
+              name="post"
+              value={id}
+            />
+
+            <input
+              type="hidden"
+              name="user"
+              value=""
+            />
+
+            <input
+              type="hidden"
+              name="date"
+              value={Date.now}
+            /> */}
+
+            <label htmlFor="text">Message:</label>
+            <textarea
+              name="message"
+              value={formData.text}
+              onChange={(e) => setFormData({ ...formData, text: e.target.value })}
+            />
+
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      ) : (
+        <div id="comment-noform">
+          <h2 className="all-posts">Comments</h2>
+          <span>To submit a comment you must sign up</span>
+          <button>Log in</button>
+          <button>Register</button>
+        </div>
+      )}
 
       <div id="content">
         <div className="post">
