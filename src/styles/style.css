@@ -336,7 +336,7 @@ h3 {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 header, #login-btn, #register-btn, #welcome, .all-posts, 
 #content, footer, #detailed-post, #like-post, #comment-form, 
-#comment-noform, #register, #login, .success-popup {
+#comment-noform, #register, #login, #backdrop-shadow, .success-popup {
     opacity: 0;
     visibility: hidden;
     animation-duration: 0.7s;
@@ -347,7 +347,7 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
     -ms-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
 }
-header, footer, #login, .success-popup {
+header, footer, #login, #backdrop-shadow, .success-popup {
     animation-delay: 0s;
 }
 #detailed-post, #register {
@@ -363,6 +363,7 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
 #login-btn, #register-btn, #like-post, #login, .success-popup {animation-name: slide-left}
 #welcome, #detailed-post, #register {animation-name: slide-right}
 #content, #footer {animation-name: slide-up}
+#backdrop-shadow {animation-name: fade-in}
 @keyframes slide-right {
     0% {
         opacity: 0%;
@@ -421,5 +422,25 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         opacity: 100%;
         transform: translateX(100px);
         visibility: hidden;
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 25%;
+        visibility: visible;
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 25%;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 0%;
+        visibility: visible;
     }
 }
