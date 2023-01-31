@@ -50,9 +50,11 @@ function App() {
   function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
     if (loginPopup.style.display === 'none') {
-      loginPopup.style.display = '';
+      loginPopup.style.display = ''; // show login popup on click
     } else {
-      loginPopup.style.display = 'none';
+      loginPopup.style.display = 'none'; // hide login popup on click
+      loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
+      loginPopup.style['animation-fill-mode'] = 'forwards';
     }
   }
 
