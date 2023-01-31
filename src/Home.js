@@ -33,12 +33,6 @@ function Home() {
         <div id="welcome">Welcome Guest. Please log in to comment on posts.</div>
       )}
 
-      {/* <div id="all-users">
-        {users.map((u) => (
-          <p>{u.username}</p>
-        ))}
-      </div> */}
-
       <h2 className="all-posts">All Posts</h2>
 
       <div id="content">

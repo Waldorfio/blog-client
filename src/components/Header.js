@@ -6,8 +6,8 @@ function Header(props) {
   return (
     <header>
       <Link to="/"><h1>Wally's Blog</h1></Link>
-      <button id='login-btn' onClick={handleLogin}>Log in</button>
-      <Link to="register" id='register-btn'><button>Register</button></Link>
+      <button id="login-btn" onClick={handleLogin}>Log in</button>
+      <Link to="register" id="register-btn"><button>Register</button></Link>
     </header>
   );
 }

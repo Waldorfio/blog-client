@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import './styles/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import User from './components/User';
+import Success from './components/Success';
 
 function App() {
   // State Decalarations
@@ -49,7 +49,6 @@ function App() {
 
   function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
-
     if (loginPopup.style.display === 'none') {
       loginPopup.style.display = '';
     } else {
@@ -64,31 +63,39 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <main className="login-main" ref={loginRef}>
-          <div id="login">
-              <h3>Login</h3>
-              <form className='user-form' onSubmit={loginSubmit} action="" method="post">
-                  <input type="text" id="username" name="username" value="" placeholder="Create a username" />
-                  <input type="password" id="password" name="password" value="" placeholder="Create a password" />
-                  <input type="submit" value="Log In" />
-              </form>
-              <div className="signup">
-                  <span className="signup">Don't have an account?
-                  <label htmlFor="check">Signup</label>
-                  </span>
-              </div>
-          </div>
+      <div id="login" ref={loginRef}>
+        <h3>Login</h3>
+        <form className="user-form" onSubmit={loginSubmit} action="" method="post">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Create a username"
+          />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a password"
+          />
+          <input type="submit" value="Log In" />
+        </form>
+        <div className="signup">
+          <span className="signup">
+            Don't have an account?
+            <label htmlFor="check">Signup</label>
+          </span>
+        </div>
+      </div>
 
-          <div className="success-popup">
-              <div className="tick"><i className="material-icons">&#xE876;</i></div>
-              <h4 className="success-msg">Log In Successful!</h4>
-          </div>
-      </main>
+      <Success
+          successMsg="Log In Successful!"
+      />
 
       <Outlet
         context={[
           users, setUsers, // Passing all users, for registration put
-          user, isLoggedIn // Passing on current logged in user
+          user, isLoggedIn, // Passing on current logged in user
         ]}
       />
 

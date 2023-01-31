@@ -193,8 +193,7 @@ button:hover {
 
 /* REGISTER & LOGIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.register-main, .login-main {
-    z-index: 1;
+.register-main {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
@@ -203,9 +202,10 @@ button:hover {
     padding: 5rem;
 }
 #login {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    z-index: 1;
+    position: absolute;
+    top: 120px;
+    left: 20px;
     transform: translate(-50%, -50%);
 }
 #register, #login {
@@ -213,7 +213,7 @@ button:hover {
     width: 100%;
     background: #fff;
     border-radius: 7px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 11px 40px rgba(0,0,0,0.3);
     padding: 2rem;
 }
 h3 {
@@ -339,10 +339,10 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
     -ms-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
 }
-header, footer, .success-popup {
+header, footer, #login, .success-popup {
     animation-delay: 0s;
 }
-#detailed-post, #register, #login {
+#detailed-post, #register {
     animation-delay: 0.3s;
 }
 #welcome, #login-btn, #register-btn, #like-post {
