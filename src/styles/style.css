@@ -193,22 +193,6 @@ button:hover {
 
 /* REGISTER & LOGIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* #log-in {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 7px;
-    padding: 15px;
-
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    justify-items: center;
-    align-items: center;
-} */
-
-
 .register-main, .login-main {
     z-index: 1;
     display: grid;
@@ -218,12 +202,13 @@ button:hover {
     justify-items: center;
     padding: 5rem;
 }
-#register, #login {
+#login {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+}
+#register, #login {
     max-width: 430px;
     width: 100%;
     background: #fff;
@@ -284,6 +269,41 @@ h3 {
 .signup > label:hover{
     text-decoration: underline;
 }
+/* Tick popup */
+#success-popup {
+    position: fixed;
+    bottom: 5%;
+    right: 3%;
+    width: 240px;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    border-radius: 7px;
+    box-shadow: 0 11px 40px rgba(0,0,0,0.3);
+    background-color: white;
+    padding: 10px 20px 10px 20px;
+}
+.success-msg {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+.tick {
+    height: 35px;
+    color: #fff;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    background: #82ce34;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+.tick > .material-icons {
+    font-weight: bold;
+    font-size: 35px;
+}
 
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -308,7 +328,7 @@ h3 {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 header, #login-btn, #register-btn, #welcome, .all-posts, 
 #content, footer, #detailed-post, #like-post, #comment-form, 
-#comment-noform {
+#comment-noform, #register, #login, #success-popup {
     opacity: 0;
     visibility: hidden;
     animation-duration: 0.7s;
@@ -319,10 +339,10 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
     -ms-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
 }
-header, footer {
+header, footer, #success-popup {
     animation-delay: 0s;
 }
-#detailed-post {
+#detailed-post, #register, #login {
     animation-delay: 0.3s;
 }
 #welcome, #login-btn, #register-btn, #like-post {
@@ -332,8 +352,8 @@ header, footer {
     animation-delay: 1.2s;
 }
 header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
-#login-btn, #register-btn, #like-post {animation-name: slide-left}
-#welcome, #detailed-post {animation-name: slide-right}
+#login-btn, #register-btn, #like-post, #login, #success-popup {animation-name: slide-left}
+#welcome, #detailed-post, #register {animation-name: slide-right}
 #content, #footer {animation-name: slide-up}
 @keyframes slide-right {
     0% {
