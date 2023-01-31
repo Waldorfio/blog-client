@@ -158,6 +158,38 @@ button:hover {
     user-select: none;
 }
 
+/* POST PAGE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#detailed-post {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+}
+#detailed-post > span {
+    text-align: center;
+    padding-left: 150px;
+    padding-right: 150px;
+}
+#like-post {
+    margin: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+#comment-form {
+}
+
+#comment-noform {
+    display: grid;
+    grid-template-rows: repeat(3, 40px);
+    gap: 5px;
+    align-items: center;
+    justify-items: center;
+}
+
 /* REGISTER & LOGIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 #register, #login-popup {
@@ -226,21 +258,23 @@ input[type='submit']:hover {
 
 /* ANIMATIONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-header, #login-btn, #register-btn, #welcome, .all-posts, #content, footer {
+header, #login-btn, #register-btn, #welcome, .all-posts, 
+#content, footer, #detailed-post, #like-post {
     opacity: 0;
     visibility: hidden;
+    animation-duration: 0.7s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier();
     -webkit-animation-timing-function: cubic-bezier();
-}
-header, footer, #welcome, #login-btn, #register-btn, .all-posts, #content {
-    animation-duration: 0.7s;
     -webkit-animation-duration: 0.9s;
     -ms-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
 }
-header, footer {
+header, footer, #detailed-post {
     animation-delay: 0s;
+}
+#like-post {
+    animation-delay: 0.3s;
 }
 #welcome, #login-btn, #register-btn {
     animation-delay: 0.6s;
@@ -249,8 +283,8 @@ header, footer {
     animation-delay: 1.2s;
 }
 header, .all-posts {animation-name: slide-down}
-#login-btn, #register-btn {animation-name: slide-left}
-#welcome {animation-name: slide-right}
+#login-btn, #register-btn, #like-post {animation-name: slide-left}
+#welcome, #detailed-post {animation-name: slide-right}
 #content, #footer {animation-name: slide-up}
 @keyframes slide-right {
     0% {
