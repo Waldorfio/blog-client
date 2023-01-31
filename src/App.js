@@ -68,9 +68,9 @@ function App() {
           <div id="login">
               <h3>Login</h3>
               <form className='user-form' onSubmit={loginSubmit} action="" method="post">
-                  <input type="text" id="username" name="username" value="" placeholder="Create a username">
-                  <input type="password" id="password" name="password" value="" placeholder="Create a password">
-                  <input type="submit" value="Log In">
+                  <input type="text" id="username" name="username" value="" placeholder="Create a username" />
+                  <input type="password" id="password" name="password" value="" placeholder="Create a password" />
+                  <input type="submit" value="Log In" />
               </form>
               <div className="signup">
                   <span className="signup">Don't have an account?
