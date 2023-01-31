@@ -70,7 +70,7 @@ header > button {
     margin: 0 auto;
     padding: 20px;
 }
-.post {
+.post, .msg {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 100px 1fr;
@@ -83,20 +83,20 @@ header > button {
 
     width: 300px;
 }
-.post:hover {
+.post:hover, .msg:hover {
     background-color: rgb(230, 230, 230);
     border: 1px solid rgb(145, 145, 145);
 }
-.post > h2 {
+.post > h2, .msg > h2 {
     grid-column: 1/3;
     margin: 0;
     font-size: 24px;
 }
-.post > h2:hover {
+.post > h2:hover, .msg > h2:hover {
     text-decoration: underline;
     cursor: pointer;
 }
-.content-snapshot {
+.content-snapshot, .msg-snapshot {
     grid-column: 1/3;
     grid-row: 2/3;
 }
@@ -128,14 +128,14 @@ button:hover {
     background-color: #000;
     color: #fff;
 }
-.msg-count {
+.msg-count, .like-count {
     grid-column: 1/2;
     grid-row: 3/4;
     align-self: center;
     justify-self: center;
     user-select: none;
 }
-.msg-number {
+.msg-number, .like-number {
     position: relative;
     top: 12px;
     right: 9px;
@@ -143,7 +143,7 @@ button:hover {
     font-weight: 800;
     color: red;
 }
-.post-details {
+.post-details, .msg-details {
     grid-column: 2/3;
     grid-row: 3/4;
     display: grid;
