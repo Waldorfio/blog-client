@@ -64,17 +64,17 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <main class="login-main" ref={loginRef}>
+      <main className="login-main" ref={loginRef}>
           <div id="login">
               <h3>Login</h3>
-              <form class='user-form' onSubmit={loginSubmit} action="" method="post">
+              <form className='user-form' onSubmit={loginSubmit} action="" method="post">
                   <input type="text" id="username" name="username" value="" placeholder="Create a username">
                   <input type="password" id="password" name="password" value="" placeholder="Create a password">
                   <input type="submit" value="Log In">
               </form>
-              <div class="signup">
-                  <span class="signup">Don't have an account?
-                  <label for="check">Signup</label>
+              <div className="signup">
+                  <span className="signup">Don't have an account?
+                  <label htmlFor="check">Signup</label>
                   </span>
               </div>
           </div>
