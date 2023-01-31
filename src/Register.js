@@ -64,7 +64,7 @@ function Register() {
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 />
-                <input type="submit" value="Signup">
+                <input type="submit" value="Signup" />
             </form>
             <div className="signup">
                 <span className="signup">Already have an account?
