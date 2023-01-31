@@ -25,7 +25,7 @@ function Home() {
   }, []);
 
   return (
-    <div id="home">
+    <main id="home">
       { isLoggedIn ? (
         // eslint-disable-next-line react/jsx-one-expression-per-line
         <div id="welcome">Welcome, {user.username}!</div>
@@ -64,7 +64,7 @@ function Home() {
         )) }
 
       </div>
-    </div>
+    </main>
   );
 }
 
