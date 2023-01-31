@@ -78,6 +78,11 @@ function App() {
                   </span>
               </div>
           </div>
+
+          <div className="success-popup">
+              <div className="tick"><i className="material-icons">&#xE876;</i></div>
+              <h4 className="success-msg">Log In Successful!</h4>
+          </div>
       </main>
 
       <Outlet
