@@ -222,6 +222,7 @@ input[type='submit']:hover {
 
 #log-in {
     position: fixed;
+    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -259,7 +260,8 @@ input[type='submit']:hover {
 /* ANIMATIONS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 header, #login-btn, #register-btn, #welcome, .all-posts, 
-#content, footer, #detailed-post, #like-post {
+#content, footer, #detailed-post, #like-post, #comment-form, 
+#comment-noform {
     opacity: 0;
     visibility: hidden;
     animation-duration: 0.7s;
@@ -279,10 +281,10 @@ header, footer {
 #welcome, #login-btn, #register-btn, #like-post {
     animation-delay: 0.6s;
 }
-.all-posts, #content {
+.all-posts, #content, #comment-form, #comment-noform {
     animation-delay: 1.2s;
 }
-header, .all-posts {animation-name: slide-down}
+header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
 #login-btn, #register-btn, #like-post {animation-name: slide-left}
 #welcome, #detailed-post {animation-name: slide-right}
 #content, #footer {animation-name: slide-up}
