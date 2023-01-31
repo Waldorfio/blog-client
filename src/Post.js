@@ -125,13 +125,13 @@ function Post() {
       <div id="content">
 
         { filterMsgs.map((msg) => (
-          <div className="post">
+          <div className="msg">
             <h2>{msg.username}</h2>
-            <div className="content-snapshot">
+            <div className="msg-snapshot">
               <p>{msg.text}</p>
             </div>
-            <div className="msg-count">
-              <div className="msg-number">8</div>
+            <div className="like-count">
+              <div className="like-number">8</div>
               <span className="material-symbols-outlined">thumb_up</span>
             </div>
             <div className="post-details">
