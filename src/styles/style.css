@@ -332,8 +332,8 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
     opacity: 0;
     visibility: hidden;
     animation-duration: 0.7s;
-    animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier();
+    animation-fill-mode: forwards;
     -webkit-animation-timing-function: cubic-bezier();
     -webkit-animation-duration: 0.9s;
     -ms-animation-duration: 1.5s;
@@ -401,5 +401,17 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         opacity: 100%;
         transform: translate(0px);
         visibility: visible;
+    }
+}
+@keyframes fade-right {
+    0% {
+        opacity: 100%;
+        transform: translateX(0);
+        visibility: visible;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(100px);
+        visibility: hidden;
     }
 }
