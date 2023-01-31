@@ -46,15 +46,19 @@ function App() {
 
   // DOM Handler functions
   const loginRef = useRef(null);
+  const backdropRef = useRef(null);
 
   function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
+    const backdrop = backdropRef.current;
     if (loginPopup.style.display === 'none') {
       loginPopup.style.display = ''; // show login popup on click
+      backdrop.style.display = '';
     } else {
-//       loginPopup.style.display = 'none'; // hide login popup on click
+      loginPopup.style.display = 'none'; // hide login popup on click
       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
       loginPopup.style['animation-fill-mode'] = 'forwards';
+      backdrop.style.display = 'none';
     }
   }
 
@@ -64,6 +68,8 @@ function App() {
       <Header
         handleLogin={handleLogin}
       />
+
+      <div id="backdrop-shadow" ref={backdropRef}></div>
 
       <div id="login" ref={loginRef}>
         <h3>Login</h3>
