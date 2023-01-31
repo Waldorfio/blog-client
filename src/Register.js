@@ -66,11 +66,18 @@ function Register() {
                 />
                 <input type="submit" value="Signup" />
             </form>
+
             <div className="signup">
                 <span className="signup">Already have an account?
                 <label htmlFor="check">Login</label>
                 </span>
             </div>
+                
+            <div id="success-popup">
+                <div className="tick"><i className="material-icons">&#xE876;</i></div>
+                <h4 className="success-msg">Account Created!</h4>
+            </div>
+                
         </div>
     </main>
   );
