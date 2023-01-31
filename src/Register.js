@@ -73,7 +73,7 @@ function Register() {
                 </span>
             </div>
                 
-            <div id="success-popup">
+            <div className="success-popup">
                 <div className="tick"><i className="material-icons">&#xE876;</i></div>
                 <h4 className="success-msg">Account Created!</h4>
             </div>
