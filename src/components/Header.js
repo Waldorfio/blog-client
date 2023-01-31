@@ -7,7 +7,7 @@ function Header(props) {
     <header>
       <Link to="/"><h1>Wally's Blog</h1></Link>
       <button id='login-btn' onClick={handleLogin}>Log in</button>
-      <Link to="register"><button>Register</button></Link>
+      <Link to="register" id='register-btn'><button>Register</button></Link>
     </header>
   );
 }
