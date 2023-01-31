@@ -10,9 +10,20 @@ a {    /* Removes default styling for links, and React Links */
     text-decoration: none;
     color: inherit;
 }
-/*-----------------*/
+/*–––––––––––––––––––––––––––––––––––––––––––––––– */
 
-/* HEADER */
+/* APP GRID
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.App {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "head" "main" "foot";
+}
+
+/* HEADER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
     font-weight: 700;
 }
@@ -33,7 +44,9 @@ header {
 header > button {
     height: 30px;
 }
-/* WELCOME */
+
+/* MAIN
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 #welcome {
     display: grid;
     align-items: center;
@@ -42,7 +55,6 @@ header > button {
     margin: 30px;
     border-bottom: 1px solid rgb(190, 190, 190);
 }
-/* CONTENT */
 .all-posts {
     text-align: center;
     font-size: 2.0em;
@@ -116,7 +128,6 @@ button:hover {
     background-color: #000;
     color: #fff;
 }
-
 .msg-count {
     grid-column: 1/2;
     grid-row: 3/4;
@@ -147,7 +158,8 @@ button:hover {
     user-select: none;
 }
 
-/* REGISTER & LOGIN */
+/* REGISTER & LOGIN
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 #register, #login-popup {
     width: 50%;
     margin: 0 auto;
@@ -193,9 +205,8 @@ input[type='submit']:hover {
     align-items: center;
 }
 
-
-
-/* FOOTER */
+/* FOOTER
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 #footer {
     display: grid;
     background-color: #e0e0e0;
@@ -211,4 +222,81 @@ input[type='submit']:hover {
 }
 #footer-title:hover {
     color: #0000007e;
+}
+
+/* ANIMATIONS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+header, #login-btn, #register-btn, #welcome, .all-posts, #content, footer {
+    opacity: 0;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier();
+    -webkit-animation-timing-function: cubic-bezier();
+}
+header, footer, #welcome, #login-btn, #register-btn, .all-posts, #content {
+    animation-duration: 0.7s;
+    -webkit-animation-duration: 0.9s;
+    -ms-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+}
+header, footer {
+    animation-delay: 0s;
+}
+#welcome, #login-btn, #register-btn {
+    animation-delay: 0.6s;
+}
+.all-posts, #content {
+    animation-delay: 1.2s;
+}
+header, .all-posts {animation-name: slide-down}
+#login-btn, #register-btn {animation-name: slide-left}
+#welcome {animation-name: slide-right}
+#content, #footer {animation-name: slide-up}
+@keyframes slide-right {
+    0% {
+        opacity: 0%;
+        transform: translateX(-100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0px);
+        visibility: visible;
+    }
+}
+@keyframes slide-left {
+    0% {
+        opacity: 0%;
+        transform: translateX(100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 100%;
+        transform: translateX(0px);
+        visibility: visible;
+    }
+}
+@keyframes slide-down {
+    0% {
+        opacity: 0%;
+        transform: translateY(-100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 100%;
+        transform: translate(0px);
+        visibility: visible;
+    }
+}
+@keyframes slide-up {
+    0% {
+        opacity: 0%;
+        transform: translateY(100px);
+        visibility: hidden;
+    }
+    100% {
+        opacity: 100%;
+        transform: translate(0px);
+        visibility: visible;
+    }
 }
