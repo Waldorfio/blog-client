@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-rendering: optimizeLegibility; /* For safari */
 }
 body,html {
@@ -192,11 +193,36 @@ button:hover {
 
 /* REGISTER & LOGIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-#register, #login-popup {
-    width: 50%;
+/* #register, #log-in {
+    z-index: 1;
     margin: 0 auto;
     padding: 1em;
-    border: 1px solid #ccc;
+    border: 1px solid purple;
+    background-color:white;
+}
+#register {
+    width: 300px;
+    height: 300px;
+}
+#register > form {
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+#log-in {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 15px;
+
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
 }
 #register > label, #log-in > label {
     font-weight: bold;
@@ -218,24 +244,79 @@ input[type='submit'] {
 }
 input[type='submit']:hover {
     background-color: #3e8e41;
-}
+} */
 
-#log-in {
-    position: fixed;
+
+
+.register-main, .login-main {
     z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    border-radius: 7px;
-
-    background-color:white;
-    padding: 15px;
-
     display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    justify-items: center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
+    justify-items: center;
+    padding: 5rem;
+}
+#register, #login {
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    padding: 2rem;
+}
+h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.user-form > form > input {
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 17px;
+    margin-bottom: 1.3rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+.user-form > input {width: 93%}
+.user-form > input[type='submit'] {width: 100%}
+.user-form > input:focus {
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.user-form > a {
+    font-size: 16px;
+    color: #009579;
+    text-decoration: none;
+}
+.user-form > a:hover {
+    text-decoration: underline;
+}
+.user-form > input[type='submit'] {
+    color: #fff;
+    background: #009579;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1.7rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.user-form > input[type='submit']:hover {
+    background: #006653;
+}
+.signup{
+    font-size: 17px;
+    text-align: center;
+}
+.signup > label{
+    color: #009579;
+    cursor: pointer;
+}
+.signup > label:hover{
+    text-decoration: underline;
 }
 
 /* FOOTER
