@@ -47,16 +47,30 @@ function App() {
   // DOM Handler functions
   const loginRef = useRef(null);
   const backdropRef = useRef(null);
+  const exitRef = useRef(null);
 
   function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
     const backdrop = backdropRef.current;
     if (loginPopup.style.display === 'none') { // show
       loginPopup.style.display = '';
-      backdrop.style.display = '';
+      backdrop.style.visibility = 'visible';
     } else { // hide
       loginPopup.style.display = 'none';
-      backdrop.style.display = 'none';
+      backdrop.style.visibility = 'hidden';
+//       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
+//       loginPopup.style['animation-fill-mode'] = 'forwards';
+    }
+  }
+  
+  function exitLogin() { // Handles interaction with login popup cross
+    const cross = exitRef.current;
+    if (loginPopup.style.display === 'none') { // show
+      loginPopup.style.display = '';
+      backdrop.style.visibility = 'visible';
+    } else { // hide
+      loginPopup.style.display = 'none';
+      backdrop.style.visibility = 'hidden';
 //       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
 //       loginPopup.style['animation-fill-mode'] = 'forwards';
     }
@@ -73,6 +87,7 @@ function App() {
 
       <div id="login" ref={loginRef}>
         <h3>Login</h3>
+        <div class="cross" ref={exitRef}><span class="material-symbols-outlined">cancel</span></div>
         <form className="user-form" onSubmit={loginSubmit} action="" method="post">
           <input
             type="text"
