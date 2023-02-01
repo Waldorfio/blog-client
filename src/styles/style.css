@@ -214,6 +214,19 @@ button:hover {
     left: 20px;
     transform: translate(-50%, -50%);
 }
+.cross {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.cross > .material-symbols-outlined {
+    font-size: 30px;
+    color: white;
+    background: #FF605C;
+    border-radius: 50%;
+    margin: 0 auto;
+    padding: 1px;
+}
 #register, #login {
     max-width: 430px;
     width: 100%;
