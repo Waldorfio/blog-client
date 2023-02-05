@@ -14,6 +14,24 @@ function App() {
   const [isLoggedIn, setLogIn] = useState(false);
   const [users, setUsers] = useState([]); // Stores GET response of all users in db
 
+  // Show popup stuff
+  const [showPopup, setShowPopup] = useState(true);
+  const [popupMsg, setPopupMsg] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 3000);
+  }, [showPopup]);
+  useEffect(() => {
+    setShowPopup(true);
+    setPopupMsg('Log In Successful!');
+  }, [isLoggedIn]);
+  useEffect(() => {
+    setShowPopup(true);
+    setPopupMsg('Registration Successful!');
+  }, [users]);
+
   // State Handlers
   const loginSubmit = (event) => {
     event.preventDefault();
@@ -100,7 +118,9 @@ function App() {
       </div>
 
       <Success
-        successMsg="Log In Successful!"
+        showPopup={showPopup}
+        setShowPopup={setShowPopup}
+        popupMsg={popupMsg}
       />
 
       <Outlet

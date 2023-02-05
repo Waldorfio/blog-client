@@ -1,11 +1,15 @@
+import React from 'react';
+
 function Success(props) {
-  const { successMsg } = props;
+  const { showPopup, setShowPopup, popupMsg } = props;
 
   return (
-    <div className="success-popup">
+    showPopup === true ? ( // If show popup equals true
+      <div className="success-popup">
         <div className="tick"><i className="material-icons">&#xE876;</i></div>
-        <h4 className="success-msg">{successMsg}</h4>
-    </div>
+        <h4 className="success-msg">{popupMsg}</h4>
+      </div>
+    ) : null
   );
 }
 
