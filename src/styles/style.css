@@ -6,6 +6,7 @@
 body,html {
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Hides scrollbar across x-axis */
 }
 a {    /* Removes default styling for links, and React Links */
     text-decoration: none;
@@ -28,11 +29,18 @@ a {    /* Removes default styling for links, and React Links */
     height: 100%;
     background-color:rgb(0, 0, 0);
 }
+header, main, footer {z-index: -1}
+#backdrop-shadow {z-index: 0}
+#login {z-index: 1}
+.success-popup {z-index: 2}
 
 /* HEADER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
     font-weight: 700;
+}
+h1:hover {
+    text-decoration: underline;
 }
 header {
     display: grid;
@@ -48,8 +56,42 @@ header {
     user-select: none;
     border-bottom: 1px solid rgb(185, 185, 185);
 }
-header > button {
-    height: 30px;
+#login-btn, #register-btn > button {
+    width: 360px;
+    height: 50px;
+    border: 2px solid #eee;
+    background-color:#b6bdc9;
+    text-align: center;
+    letter-spacing: 0.7px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    padding: 7px;
+}
+#register-btn > button {
+    margin-right: 7px;
+    background-color: #e9ecf0;
+    color: #1859c9;
+    border: 1px solid #1859c9;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+#register-btn > button:hover {
+    background-color: #1859c9;
+    color: white;
+    border: 1px solid white;
+}
+#login-btn {
+    background-color: #1859c9;
+    color: white;
+    border: 1px solid #1859c9;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+#login-btn:hover {
+    background-color: #e9ecf0;
+    color: #1859c9;
+    border: 1px solid #1859c9;
 }
 
 /* MAIN
@@ -120,21 +162,6 @@ header > button {
 .content-snapshot > a:hover {
     text-decoration: underline;
 }
-button {
-    text-align: center;
-    cursor: pointer;
-    color: #fff;
-    border: 2px solid transparent;
-    border-color: #000;
-    color: #000;
-    background: transparent;
-    font-weight: 800;
-    transition: background,color .1s ease-in-out;
-}
-button:hover {
-    background-color: #000;
-    color: #fff;
-}
 .msg-count, .like-count {
     grid-column: 1/2;
     grid-row: 3/4;
@@ -146,9 +173,20 @@ button:hover {
     position: relative;
     top: 12px;
     right: 9px;
-
-    font-weight: 800;
+    font-size: 1.5em;
+    font-weight: 500;
     color: red;
+}
+.like-count {
+    cursor: pointer;
+}
+.like-count > .material-symbols-outlined {
+    font-weight: 200;
+    font-size: 36px;
+    color: #3b5998;
+    border: 3px solid #3b5998;
+    border-radius: 50%;
+    padding: 5px;
 }
 .post-details, .msg-details {
     grid-column: 2/3;
@@ -174,9 +212,12 @@ button:hover {
     padding: 30px;
 }
 #detailed-post > span {
-    text-align: center;
+    /* text-align: center;
     padding-left: 150px;
-    padding-right: 150px;
+    padding-right: 150px; */
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    max-width: 1000px;
 }
 #like-post {
     margin: 40px;
@@ -207,14 +248,21 @@ button:hover {
     justify-items: center;
     padding: 5rem;
 }
+#login-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
 #login {
-    z-index: 1;
-    position: absolute;
-    top: 120px;
-    left: 20px;
-    transform: translate(-50%, -50%);
 }
 .cross {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
     position: absolute;
     top: 25px;
     right: 25px;
@@ -272,10 +320,12 @@ h3 {
     letter-spacing: 1px;
     margin-top: 1.7rem;
     cursor: pointer;
-    transition: 0.4s;
+    transition: 0.3s;
 }
 .user-form > input[type='submit']:hover {
-    background: #006653;
+    background: #e9ecf0;
+    border: 1px solid #006653;
+    color: #006653;
 }
 .signup{
     font-size: 17px;
@@ -294,7 +344,6 @@ h3 {
     bottom: 5%;
     right: 3%;
     width: 240px;
-    z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
