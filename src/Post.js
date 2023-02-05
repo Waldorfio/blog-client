@@ -15,18 +15,27 @@ function Post() {
     username: user.username, // This user.username is updated via the useEffect hook below
     date: Date.now,
     text: '',
+    likes: 0,
   });
-
   useEffect(() => { // hook needed to update the state everytime the context changes
     setFormData({
       username: user.username,
     });
   }, [user]); // referencing the context here
 
-  // State Handlers
+  // --------- GET Post/:id ---------
+  const fetchPostData = async () => {
+    try {
+      const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}`, { method: 'GET' });
+      const data = await res.json();
+      setPost(data);
+    } catch (err) { console.error(err); }
+  };
+  useEffect(() => {
+    fetchPostData();
+  }, [id]);
 
-  // -- API CALL (GET) for all messages
-  // Create API call functions
+  // --------- GET Msg/:id ---------
   const fetchMsgs = async () => {
     try {
       const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}/msg`, { method: 'GET' });
@@ -36,11 +45,11 @@ function Post() {
       console.error(err);
     }
   };
-  // Call API call functions
   useEffect(() => {
     fetchMsgs();
   }, [msgs]);
 
+  // --------- CREATE Msg ---------
   const msgSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -52,31 +61,15 @@ function Post() {
       });
       // Check data
       const data = await res.json();
-      if (data.success) {
-        console.log('message posted');
-        setMsgs([...msgs, data]); // Append the new msg to the msg state
-      } else {
-        console.log('data was not a success');
-      }
-    } catch (err) {
-      console.error(err);
-    }
+      setMsgs([...msgs, data]); // Append the new msg to the msg state
+    } catch (err) { console.error(err); }
   };
 
-  // Create API call functions
-  const fetchPostData = async () => {
-    try {
-      const res = await fetch(`https://blog-api-production-6aeb.up.railway.app/posts/${id}`, { method: 'GET' });
-      const data = await res.json();
-      setPost(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  // Call API call functions
-  useEffect(() => {
-    fetchPostData();
-  }, [id]);
+  // Handle Likes
+  function handleLikes(msg) {
+    console.log(`old likes: ${msg.likes}`);
+    console.log(`new likes: ${msg.likes + 1}`);
+  }
 
   // Filter messages based on current post id
   const filterMsgs = msgs.filter((msg) => msg.postid === id);
@@ -131,8 +124,8 @@ function Post() {
               <p>{msg.text}</p>
             </div>
             <div className="like-count">
-              <div className="like-number">8</div>
-              <span className="material-symbols-outlined">thumb_up</span>
+              <div className="like-number">{msg.likes}</div>
+              <span className="material-symbols-outlined" onClick={(msg) => handleLikes}>thumb_up</span>
             </div>
             <div className="post-details">
               <div className="date">{msg.date}</div>

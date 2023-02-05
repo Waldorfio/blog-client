@@ -3,34 +3,35 @@ import React, { useState, useEffect } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 
 function Home() {
-  const [msgs, users, setUsers, user, isLoggedIn] = useOutletContext();
-
-  // State Decalarations
-  const [posts, setPosts] = useState([]);
-
-  // Create API call functions
-  const fetchPosts = async () => {
-    try {
-      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/posts', { method: 'GET' });
-      const data = await res.json();
-      setPosts(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // Call API call functions
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  const [posts, msgs, users, setUsers, user, isLoggedIn] = useOutletContext();
 
   return (
     <main id="home">
       { isLoggedIn ? (
-        // eslint-disable-next-line react/jsx-one-expression-per-line
-        <div id="welcome">Welcome, {user.username}!</div>
+        <div id="welcome">
+          Welcome to my blog,
+          {' '}
+          {user.username}
+          !
+          <br />
+          This is a sample blog website I have created to serve my&nbsp;
+          API backend, which is responsible for user authenticaiton/&nbsp;
+          authorisation, as well as managing all blog posts, messages&nbsp;
+          and users behind the scenes.
+          <br />
+          Please log-in so that you can comment and like other comments!
+        </div>
       ) : (
-        <div id="welcome">Welcome Guest. Please log in to comment on posts.</div>
+        <div id="welcome">
+          Welcome to my blog, Guest!
+          <br />
+          This is a sample blog website I have created to serve my&nbsp;
+          API backend, which is responsible for user authenticaiton/&nbsp;
+          authorisation, as well as managing all blog posts, messages&nbsp;
+          and users behind the scenes.
+          <br />
+          Please log-in so that you can comment and like other comments!
+        </div>
       )}
 
       <h2 className="all-posts">All Posts</h2>
@@ -47,7 +48,7 @@ function Home() {
               <Link to={`/posts/${post._id}`}>Read more</Link>
             </div>
             <div className="msg-count">
-              <div className="msg-number">{msgs.filter(msg => msg.postid === post._id).length}</div>
+              <div className="msg-number">{msgs.filter((msg) => msg.postid === post._id).length}</div>
               <span className="material-symbols-outlined">forum</span>
             </div>
             <div className="post-details">

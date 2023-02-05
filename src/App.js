@@ -12,8 +12,9 @@ function App() {
     password: '',
   });
   const [isLoggedIn, setLogIn] = useState(false);
-  const [users, setUsers] = useState([]); // Stores GET response of all users in db
-  const [msgs, setMsgs] = useState([]); // Stores GET response of all users in db
+  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [msgs, setMsgs] = useState([]);
 
   // --------- GET Users ---------
   const fetchUsers = async () => {
@@ -37,6 +38,18 @@ function App() {
   };
   useEffect(() => {
     fetchMsgs();
+  }, []);
+
+  // --------- GET Posts ---------
+  const fetchPosts = async () => {
+    try {
+      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/posts', { method: 'GET' });
+      const data = await res.json();
+      setPosts(data);
+    } catch (err) { console.error(err); }
+  };
+  useEffect(() => {
+    fetchPosts();
   }, []);
 
   // --------- LOGIN User ---------
@@ -135,6 +148,7 @@ function App() {
 
       <Outlet
         context={[
+          posts,
           msgs,
           users, setUsers, // Passing all users, for registration put
           user, isLoggedIn, // Passing on current logged in user
