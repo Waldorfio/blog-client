@@ -30,6 +30,7 @@ function App() {
   useEffect(() => {
     setShowPopup(true);
     setPopupMsg('Registration Successful!');
+    console.log('Registration successful');
   }, [users]);
 
   // State Handlers

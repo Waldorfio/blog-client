@@ -22,12 +22,7 @@ function Register() {
       });
       // Check data
       const data = await res.json();
-      if (data.success) {
-        console.log('registration successful');
-        setUsers([...users, data.user]); // Append the new user to the user state
-      } else {
-        console.log('data was not a success');
-      }
+      setUsers([...users, data]); // Append the new user to the user state
     } catch (err) {
       console.error(err);
     }
@@ -72,11 +67,11 @@ function Register() {
           </span>
         </div>
 
-      </div>
+        { users.map((usr) => (
+          <div>{usr.username}</div>
+        ))}
 
-      <Success
-          successMsg="Account Created!"
-      />
+      </div>
 
     </main>
   );
