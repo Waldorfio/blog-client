@@ -58,11 +58,11 @@ function App() {
     } else { // hide
       loginPopup.style.display = 'none';
       backdrop.style.visibility = 'hidden';
-//       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
-//       loginPopup.style['animation-fill-mode'] = 'forwards';
+      //       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
+      //       loginPopup.style['animation-fill-mode'] = 'forwards';
     }
   }
-  
+
   function exitLogin() { // Handles interaction with login popup cross
     const cross = exitRef.current;
     if (loginPopup.style.display === 'none') { // show
@@ -71,8 +71,8 @@ function App() {
     } else { // hide
       loginPopup.style.display = 'none';
       backdrop.style.visibility = 'hidden';
-//       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
-//       loginPopup.style['animation-fill-mode'] = 'forwards';
+      //       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
+      //       loginPopup.style['animation-fill-mode'] = 'forwards';
     }
   }
 
@@ -83,36 +83,38 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <div id="backdrop-shadow" ref={backdropRef}></div>
+      <div id="backdrop-shadow" ref={backdropRef} />
 
-      <div id="login" ref={loginRef}>
-        <h3>Login</h3>
-        <div class="cross" ref={exitRef}><span class="material-symbols-outlined">cancel</span></div>
-        <form className="user-form" onSubmit={loginSubmit} action="" method="post">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="Create a username"
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Create a password"
-          />
-          <input type="submit" value="Log In" />
-        </form>
-        <div className="signup">
-          <span className="signup">
-            Don't have an account?
-            <label htmlFor="check">Signup</label>
-          </span>
+      <div id="login-container">
+        <div id="login" ref={loginRef}>
+          <h3>Login</h3>
+          <div className="cross" ref={exitRef}><span className="material-symbols-outlined">cancel</span></div>
+          <form className="user-form" onSubmit={loginSubmit} action="" method="post">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Create a username"
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+            />
+            <input type="submit" value="Log In" />
+          </form>
+          <div className="signup">
+            <span className="signup">
+              Don't have an account?
+              <label htmlFor="check">Signup</label>
+            </span>
+          </div>
         </div>
       </div>
 
       <Success
-          successMsg="Log In Successful!"
+        successMsg="Log In Successful!"
       />
 
       <Outlet
