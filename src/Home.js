@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 
 function Home() {
-  const [users, setUsers, user, isLoggedIn] = useOutletContext();
+  const [msgs, users, setUsers, user, isLoggedIn] = useOutletContext();
 
   // State Decalarations
   const [posts, setPosts] = useState([]);
@@ -47,7 +47,7 @@ function Home() {
               <Link to={`/posts/${post._id}`}>Read more</Link>
             </div>
             <div className="msg-count">
-              <div className="msg-number">8</div>
+              <div className="msg-number">{msgs.filter(msg => msg.postid === post._id).length}</div>
               <span className="material-symbols-outlined">forum</span>
             </div>
             <div className="post-details">

@@ -6,15 +6,70 @@ import Footer from './components/Footer';
 import Success from './components/Success';
 
 function App() {
-  // State Decalarations
+  // --------- State Declarations ---------
   const [user, setUser] = useState({ // The logged in user
     username: '',
     password: '',
   });
   const [isLoggedIn, setLogIn] = useState(false);
   const [users, setUsers] = useState([]); // Stores GET response of all users in db
+  const [msgs, setMsgs] = useState([]); // Stores GET response of all users in db
 
-  // Show popup stuff
+  // --------- GET Users ---------
+  const fetchUsers = async () => {
+    try {
+      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' });
+      const data = await res.json();
+      setUsers(data);
+    } catch (err) { console.error(err); }
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  // --------- GET Msgs ---------
+  const fetchMsgs = async () => {
+    try {
+      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/msgs', { method: 'GET' });
+      const data = await res.json();
+      setMsgs(data);
+    } catch (err) { console.error(err); }
+  };
+  useEffect(() => {
+    fetchMsgs();
+  }, []);
+
+  // --------- LOGIN User ---------
+  const loginSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    setUser({
+      username: formData.get('username'),
+      password: formData.get('password'),
+    });
+    setLogIn(true); // set log in status to true
+    console.log('user logged in');
+    console.log(`username: ${user.username}`);
+    console.log(`password: ${user.password}`);
+  };
+
+  // --------- Login Popup Handlers ---------
+  const loginRef = useRef(null);
+  const backRef = useRef(null);
+
+  function handleLogin() { // Handles the login popup styling/hiding
+    const loginPopup = loginRef.current;
+    const back = backRef.current;
+    if (loginPopup.style.display === 'none') { // if loginpopup is not shown, show it
+      loginPopup.style.display = '';
+      back.style.display = '';
+    } else { // otherwise if loginpopup is already visible, hide it
+      loginPopup.style.display = 'none';
+      back.style.display = 'none';
+    }
+  }
+
+  // --------- Popup Handlers ---------
   const [showPopup, setShowPopup] = useState(true);
   const [popupMsg, setPopupMsg] = useState('');
 
@@ -32,52 +87,6 @@ function App() {
     setPopupMsg('Registration Successful!');
     console.log('Registration successful');
   }, [users]);
-
-  // State Handlers
-  const loginSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    setUser({
-      username: formData.get('username'),
-      password: formData.get('password'),
-    });
-    setLogIn(true); // set log in status to true
-    console.log('user logged in');
-    console.log(`username: ${user.username}`);
-    console.log(`password: ${user.password}`);
-  };
-
-  // -- API CALL (GET) for all users
-  // Create API call functions
-  const fetchUsers = async () => {
-    try {
-      const res = await fetch('https://blog-api-production-6aeb.up.railway.app/users', { method: 'GET' });
-      const data = await res.json();
-      setUsers(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  // Call API call functions
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  // DOM Handler functions
-  const loginRef = useRef(null);
-  const backRef = useRef(null);
-
-  function handleLogin() { // Handles the login popup styling/hiding
-    const loginPopup = loginRef.current;
-    const back = backRef.current;
-    if (loginPopup.style.display === 'none') { // if loginpopup is not shown, show it
-      loginPopup.style.display = '';
-      back.style.display = '';
-    } else { // otherwise if loginpopup is already visible, hide it
-      loginPopup.style.display = 'none';
-      back.style.display = 'none';
-    }
-  }
 
   return (
     <div className="App">
@@ -126,6 +135,7 @@ function App() {
 
       <Outlet
         context={[
+          msgs,
           users, setUsers, // Passing all users, for registration put
           user, isLoggedIn, // Passing on current logged in user
         ]}
