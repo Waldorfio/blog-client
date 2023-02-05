@@ -67,7 +67,7 @@ function Register() {
 
         <div className="signup">
           <span className="signup">
-            Already have an account?
+            Already have an account?&nbsp;
             <label htmlFor="check">Login</label>
           </span>
         </div>

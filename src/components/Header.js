@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
@@ -5,9 +6,9 @@ function Header(props) {
 
   return (
     <header>
-      <Link to="/"><h1>Wally's Blog</h1></Link>
-      <button id="login-btn" onClick={handleLogin}>Log in</button>
-      <Link to="register" id="register-btn"><button>Register</button></Link>
+      <Link to="/"><h1>Wally&apos;s Blog</h1></Link>
+      <button type="button" id="login-btn" onClick={handleLogin}>Log in</button>
+      <Link to="register" id="register-btn"><button type="button">Register</button></Link>
     </header>
   );
 }

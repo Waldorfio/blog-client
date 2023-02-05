@@ -46,33 +46,17 @@ function App() {
 
   // DOM Handler functions
   const loginRef = useRef(null);
-  const backdropRef = useRef(null);
-  const exitRef = useRef(null);
+  const backRef = useRef(null);
 
   function handleLogin() { // Handles the login popup styling/hiding
     const loginPopup = loginRef.current;
-    const backdrop = backdropRef.current;
-    if (loginPopup.style.display === 'none') { // show
+    const back = backRef.current;
+    if (loginPopup.style.display === 'none') { // if loginpopup is not shown, show it
       loginPopup.style.display = '';
-      backdrop.style.visibility = 'visible';
-    } else { // hide
+      back.style.display = '';
+    } else { // otherwise if loginpopup is already visible, hide it
       loginPopup.style.display = 'none';
-      backdrop.style.visibility = 'hidden';
-      //       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
-      //       loginPopup.style['animation-fill-mode'] = 'forwards';
-    }
-  }
-
-  function exitLogin() { // Handles interaction with login popup cross
-    const cross = exitRef.current;
-    if (loginPopup.style.display === 'none') { // show
-      loginPopup.style.display = '';
-      backdrop.style.visibility = 'visible';
-    } else { // hide
-      loginPopup.style.display = 'none';
-      backdrop.style.visibility = 'hidden';
-      //       loginPopup.style.animation = 'fade-right 0.7s cubic-bezier() 0s'; // exit animation
-      //       loginPopup.style['animation-fill-mode'] = 'forwards';
+      back.style.display = 'none';
     }
   }
 
@@ -83,12 +67,14 @@ function App() {
         handleLogin={handleLogin}
       />
 
-      <div id="backdrop-shadow" ref={backdropRef} />
+      <div id="backdrop-shadow" ref={backRef} style={{ display: 'none' }} />
 
-      <div id="login-container">
-        <div id="login" ref={loginRef}>
+      <div id="login-container" ref={loginRef} style={{ display: 'none' }}>
+        <div id="login">
           <h3>Login</h3>
-          <div className="cross" ref={exitRef}><span className="material-symbols-outlined">cancel</span></div>
+          <div className="cross" onClick={handleLogin}>
+            <span className="material-symbols-outlined">cancel</span>
+          </div>
           <form className="user-form" onSubmit={loginSubmit} action="" method="post">
             <input
               type="text"
@@ -106,7 +92,7 @@ function App() {
           </form>
           <div className="signup">
             <span className="signup">
-              Don't have an account?
+              Don&apos;t have an account?&nbsp;
               <label htmlFor="check">Signup</label>
             </span>
           </div>
