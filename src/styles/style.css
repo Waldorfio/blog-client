@@ -29,10 +29,11 @@ a {    /* Removes default styling for links, and React Links */
     height: 100%;
     background-color:rgb(0, 0, 0);
 }
-header, main, footer {z-index: -1}
-#backdrop-shadow {z-index: 0}
-#login {z-index: 1}
-.success-popup {z-index: 2}
+/* Indexes */
+header, main, footer {z-index: 0}
+#backdrop-shadow {z-index: 1}
+#login-container {z-index: 2}
+.success-popup {z-index: 3}
 
 /* HEADER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -268,12 +269,13 @@ header {
     right: 25px;
 }
 .cross > .material-symbols-outlined {
-    font-size: 30px;
+    font-size: 27px;
     color: white;
     background: #FF605C;
     border-radius: 50%;
-    margin: 0 auto;
-    padding: 1px;
+}
+.cross > .material-symbols-outlined:hover {
+    background: #bd3937;
 }
 #register, #login {
     max-width: 430px;
@@ -354,7 +356,7 @@ h3 {
     padding: 10px 20px 10px 20px;
 }
 .success-msg {
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 500;
 }
 .tick {
@@ -420,10 +422,11 @@ header, footer, #login, #backdrop-shadow, .success-popup {
     animation-delay: 1.2s;
 }
 header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
-#login-btn, #register-btn, #like-post, #login, .success-popup {animation-name: slide-left}
+#login-btn, #register-btn, #like-post, .success-popup {animation-name: slide-left}
 #welcome, #detailed-post, #register {animation-name: slide-right}
 #content, #footer {animation-name: slide-up}
 #backdrop-shadow {animation-name: fade-in}
+#login {animation-name: grow-in}
 @keyframes slide-right {
     0% {
         opacity: 0%;
@@ -501,6 +504,18 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
     }
     100% {
         opacity: 0%;
+        visibility: visible;
+    }
+}
+@keyframes grow-in {
+    0% {
+        scale: 0.8;
+        opacity: 0%;
+        visibility: hidden;
+    }
+    100% {
+        scale: 1.0;
+        opacity: 100%;
         visibility: visible;
     }
 }
