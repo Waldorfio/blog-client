@@ -3,34 +3,42 @@ import React, { useState, useEffect } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 
 function Home() {
-  const [posts, msgs, users, setUsers, user, isLoggedIn] = useOutletContext();
+  const [posts, msgs, users, setUsers, user, isLoggedIn, handleLogin] = useOutletContext();
 
   return (
     <main id="home">
       { isLoggedIn ? (
         <div id="welcome">
-          Welcome to my blog,
-          {' '}
-          {user.username}
-          !
-          <br />
-          This is a sample blog website I have created to serve my&nbsp;
-          API backend, which is responsible for user authenticaiton/&nbsp;
-          authorisation, as well as managing all blog posts, messages&nbsp;
-          and users behind the scenes.
-          <br />
-          Please log-in so that you can comment and like other comments!
+          <span>
+            Welcome to my blog,
+            {' '}
+            {user.username}
+            !
+          </span>
+          <span>
+            This is a sample blog website I have created to serve my&nbsp;
+            API backend, which is responsible for user authenticaiton/&nbsp;
+            authorisation, as well as managing all blog posts, messages&nbsp;
+            and users behind the scenes.
+          </span>
+          <span>
+            Please log-in so that you can comment and like other comments!
+          </span>
         </div>
       ) : (
         <div id="welcome">
-          Welcome to my blog, Guest!
-          <br />
-          This is a sample blog website I have created to serve my&nbsp;
-          API backend, which is responsible for user authenticaiton/&nbsp;
-          authorisation, as well as managing all blog posts, messages&nbsp;
-          and users behind the scenes.
-          <br />
-          Please log-in so that you can comment and like other comments!
+          <span>
+            Welcome to my blog, Guest!
+          </span>
+          <span>
+            This is a sample blog website I have created to serve my&nbsp;
+            API backend, which is responsible for user authenticaiton/&nbsp;
+            authorisation, as well as managing all blog posts, messages&nbsp;
+            and users behind the scenes.
+          </span>
+          <span>
+            Please log-in so that you can comment and like other comments!
+          </span>
         </div>
       )}
 

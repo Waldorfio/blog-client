@@ -1,15 +1,14 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useOutletContext, useParams, Link } from 'react-router-dom';
 
 function Post() {
   const { id } = useParams(); // Extract post id from url
 
   // Outlet prop Decalarations
-  const [users, setUsers, user, isLoggedIn] = useOutletContext();
+  const [posts, msgs, users, setUsers, user, isLoggedIn, handleLogin] = useOutletContext();
   // State Decalarations
   const [post, setPost] = useState([]);
-  const [msgs, setMsgs] = useState([]);
   const [formData, setFormData] = useState({ // Form data for message form
     postid: id,
     username: user.username, // This user.username is updated via the useEffect hook below
@@ -85,8 +84,7 @@ function Post() {
       <div id="like-post">
         Impressed?
         <br />
-        Consider giving this post a like.
-        <span className="material-symbols-outlined">recommend</span>
+        Consider posting a comment with your thoughts below!
       </div>
 
       { isLoggedIn ? (
@@ -96,11 +94,12 @@ function Post() {
             {user.username}, submit a comment below!
           </span>
 
-          <form onSubmit={msgSubmit}>
+          <form className="user-form" onSubmit={msgSubmit}>
 
-            <label htmlFor="text">Message:</label>
             <textarea
               name="message"
+              placeholder="Enter your message here..."
+              maxLength="80"
               value={formData.text}
               onChange={(e) => setFormData({ ...formData, text: e.target.value })}
             />
@@ -111,7 +110,8 @@ function Post() {
       ) : (
         <div id="comment-noform">
           <h2 className="all-posts">Comments</h2>
-          <span>To submit a comment you must log in, or sign up</span>
+          <span>To submit a comment you must log in</span>
+          <button type="button" id="login-btn" onClick={handleLogin}>Log in</button>
         </div>
       )}
 

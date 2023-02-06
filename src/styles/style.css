@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/onramp');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 * {
     /* font-family: 'Poppins', sans-serif; */
     font-family: 'ONRAMP', sans-serif;
@@ -23,6 +24,7 @@ a {    /* Removes default styling for links, and React Links */
     --text: white;
     --bgColor1: #5cdb95;
     --bgColor2: #05386b;
+    --bgColor3: #747474;
 
     --header: #5cdb95;
     --header-text: #05386b;
@@ -32,6 +34,7 @@ a {    /* Removes default styling for links, and React Links */
 
     --font1: 'Poppins', sans-serif;
     --font2: 'ONRAMP', sans-serif;
+    --font3: 'Rajdhani', sans-serif;
 }
 
 /* APP GRID
@@ -123,15 +126,24 @@ header {
 /* MAIN
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 #welcome {
+    height: 200px;
+
+    margin: 0 30px 0 30px;
+    padding: 50px;
+    border-bottom: 1px solid #05386b;
+
     display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
     align-items: center;
     justify-items: center;
-    height: 200px;
-    margin: 30px;
-    border-bottom: 1px solid #05386b;
-    color: var(--welcome-text);
-    font-size: 2.0em;
-    font-weight: 100;
+    text-align: center;
+}
+#welcome > span {
+    max-width: 640px;
+    font-size: 1.3em;
+    font-weight: 900;
+    font-family: var(--font3);
     color: var(--bgColor2);
 }
 .all-posts {
@@ -255,7 +267,7 @@ header {
     font-size: 1.4em;
 }
 .date {
-    color: var(--text);
+    color: var(--bgColor3);
     font-weight: 100;
     font-size: 1.1em;
     user-select: none;
@@ -271,30 +283,79 @@ header {
     padding: 30px;
 }
 #detailed-post > span {
-    /* text-align: center;
-    padding-left: 150px;
-    padding-right: 150px; */
     padding-left: 1.3rem;
     padding-right: 1.3rem;
     max-width: 1000px;
+    font-size: 1.3em;
+    font-weight: 900;
+    font-family: var(--font3);
+    color: var(--bgColor2);
+}
+#detailed-post > h2 {
+    letter-spacing: 0.2rem;
+    text-align: center;
+    font-size: 3.3em;
 }
 #like-post {
-    margin: 40px;
+    margin: 0 120px 0 120px;
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
+    border-top: 1px solid var(--bgColor2);
+    border-bottom: 1px solid var(--bgColor2);
+
+    font-size: 1.3em;
+    font-weight: 900;
+    font-family: var(--font3);
+    color: var(--bgColor2);
+}
+#comment-form, #comment-noform {
+    padding: 40px;
+}
+#comment-form > span, #comment-noform > span {
+    font-size: 1.7em;
+    font-weight: 100;
+    color: var(--bgColor2);
 }
 #comment-form {
+    display: grid;
+    grid-template-rows: repeat(2, 40px) 1fr;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
 }
-
+#comment-form > form {
+    display: grid;
+    grid-template-rows: 1fr 0.6fr;
+    gap: 5px;
+}
+#comment-form > form > input[type='submit'] {
+    background-color: var(--bgColor2);
+}
+#comment-form > form > input[type='submit']:hover {
+    background-color: white;
+    color: var(--bgColor1);
+    border: 1px solid var(--bgColor1);
+}
+#comment-form > form > textarea {
+    width: 442px;
+    height: 60px;
+    font-size: 1.7em;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 7px;
+    height: 100px;
+}
 #comment-noform {
     display: grid;
     grid-template-rows: repeat(3, 40px);
-    gap: 5px;
+    gap: 15px;
     align-items: center;
     justify-items: center;
+}
+#comment-noform > button {
+    grid-column: 1/2;
+    width: 100px;
 }
 
 /* REGISTER & LOGIN
@@ -341,20 +402,21 @@ header {
     width: 100%;
     background: #fff;
     border-radius: 7px;
-    box-shadow: 0 11px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 31px 70px rgba(0,0,0,0.3);
     padding: 2rem;
 }
 h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 500;
     text-align: center;
     margin-bottom: 1.5rem;
+    margin-top: 1rem;
 }
 .user-form > input {
     height: 60px;
     width: 100%;
     padding: 0 15px;
-    font-size: 17px;
+    font-size: 22px;
     margin-bottom: 1.3rem;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -366,7 +428,7 @@ h3 {
     box-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
 .user-form > a {
-    font-size: 16px;
+    font-size: 22px;
     color: var(--bgColor1);
     text-decoration: none;
 }

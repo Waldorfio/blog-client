@@ -151,7 +151,7 @@ function App() {
           posts,
           msgs,
           users, setUsers, // Passing all users, for registration put
-          user, isLoggedIn, // Passing on current logged in user
+          user, isLoggedIn, handleLogin, // Passing on current logged in user
         ]}
       />
 
