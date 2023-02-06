@@ -680,11 +680,37 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         font-size: 2.1em;
         margin: 30px 0 10px 0;
     }
+    #detailed-post {padding: 30px 0px 30px 0px}
+    #detailed-post > span {
+        max-width: 190px;
+        font-size: 0.9em;
+    }
+    #detailed-post > h2 {font-size: 1.8em}
+    #like-post {
+        margin: 0 40px 0 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 0.9em;
+    }
+    #comment-form, #comment-noform {padding: 20px}
+    #comment-form > span, #comment-noform > span {font-size: 1.4em}
+    #comment-form > form > textarea {
+        width: 280px;
+        height: 60px;
+        font-size: 1.2em;
+        padding: 15px;
+        height: 60px;
+    }
     #footer {
         font-size: 1.1em;
         font-weight: 100;
         letter-spacing: 0.0rem;
         padding: 5px;
+    }
+    .success-popup {
+        bottom: 1%;
+        right: 2%;
+        width: 240px;
     }
 }
 @media (min-width: 370px) and (max-width: 615px) {
@@ -702,6 +728,27 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
     .all-posts {
         font-size: 2.7em;
         margin: 20px 0 10px 0;
+    }
+    #detailed-post {padding: 30px 0px 30px 0px}
+    #detailed-post > span {
+        max-width: 350px;
+        font-size: 1.1em;
+    }
+    #detailed-post > h2 {font-size: 2.6em}
+    #like-post {
+        margin: 0 40px 0 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 1.1em;
+    }
+    #comment-form, #comment-noform {padding: 20px}
+    #comment-form > span, #comment-noform > span {font-size: 1.4em}
+    #comment-form > form > textarea {
+        width: 280px;
+        height: 60px;
+        font-size: 1.2em;
+        padding: 15px;
+        height: 60px;
     }
     #register, #login {
         width: 80%;
@@ -721,6 +768,11 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         letter-spacing: 0.0rem;
         padding: 10px;
     }
+    .success-popup {
+        bottom: 1%;
+        right: 2%;
+        width: 240px;
+    }
 }
 @media (min-width: 615px) and (max-width: 1500px) {
     h1 {font-size: 3.2em}
@@ -738,6 +790,12 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         font-size: 3.5em;
         margin: 30px 0 20px 0;
     }
+    #detailed-post {padding: 30px 30px 30px 30px}
+    #detailed-post > span {
+        max-width: 700px;
+        font-size: 1.2em;
+    }
+    #detailed-post > h2 {font-size: 3.5em}
     #footer {
         font-size: 1.4em;
         font-weight: 100;
@@ -767,6 +825,13 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
             width: 180px;
             font-size: 1.7em;
     }
+    #detailed-post {
+        padding: 30px 30px 30px 30px}
+    #detailed-post > span {
+        max-width: 1500px;
+        font-size: 1.5em;
+    }
+    #detailed-post > h2 {font-size: 4.5em}
     #footer {
         font-size: 1.5em;
         font-weight: 500;
