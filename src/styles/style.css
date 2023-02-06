@@ -2,7 +2,6 @@
 @import url('https://fonts.cdnfonts.com/css/onramp');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
 * {
-    /* font-family: 'Poppins', sans-serif; */
     font-family: 'ONRAMP', sans-serif;
     text-rendering: optimizeLegibility; /* For safari */
 }
@@ -63,8 +62,7 @@ header, main, footer {z-index: 0}
 /* HEADER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
-    font-weight: 00;
-    font-size: 3.6em;
+    font-weight: 100;
     text-align: center;
 }
 .wallys {font-weight: 800}
@@ -280,7 +278,7 @@ header {
     display: grid;
     align-items: center;
     justify-items: center;
-    padding: 30px;
+    padding: 30px 60px 30px 60px;
 }
 #detailed-post > span {
     padding-left: 1.3rem;
@@ -502,7 +500,6 @@ h3 {
 #footer {
     display: grid;
     background-color: var(--footer);
-    font-weight: 500;
     color: var(--footer-text);
     font-size: 1.4em;
     font-weight: 100;
@@ -512,10 +509,10 @@ h3 {
     padding: 10px;
 }
 #footer-title {
-    transition: color 0.3s;
+    transition: color 0.2s;
 }
 #footer-title:hover {
-    color: #0000007e;
+    color: var(--bgColor1);
 }
 
 /* ANIMATIONS
@@ -526,24 +523,33 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
     opacity: 0;
     visibility: hidden;
     animation-duration: 0.6s;
+        -webkit-animation-duration: 0.6s;
+        -ms-animation-duration: 0.6s;
+        -moz-animation-duration: 1.0s;
     animation-timing-function: cubic-bezier();
+        -webkit-animation-timing-function: cubic-bezier();
     animation-fill-mode: forwards;
-    -webkit-animation-timing-function: cubic-bezier();
-    -webkit-animation-duration: 0.9s;
-    -ms-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
 }
 header, footer, #login, #backdrop-shadow, .success-popup {
     animation-delay: 0s;
 }
 #detailed-post, #register {
     animation-delay: 0.3s;
+        -webkit-animation-delay: 0.3s;
+        -ms-animation-delay: 0.3s;
+        -moz-animation-delay: 0.3s;
 }
 #welcome, #login-btn, #register-btn, #like-post {
     animation-delay: 0.6s;
+        -webkit-animation-delay: 0.6s;
+        -ms-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
 }
 .all-posts, #content, #comment-form, #comment-noform {
     animation-delay: 1.2s;
+    -webkit-animation-delay: 1.2s;
+    -ms-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
 }
 header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
 #login-btn, #register-btn, #like-post, .success-popup {animation-name: slide-left}
@@ -641,5 +647,130 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         scale: 1.0;
         opacity: 100%;
         visibility: visible;
+    }
+}
+
+/* MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (min-width: 0px) and (max-width: 370px) {
+   h1 {font-size: 2.2em}
+   header {grid-template-columns: 110px 1fr repeat(2, 70px); padding: 5px}
+   #welcome {
+        margin: 0 20px 0 20px;
+        padding: 20px 0 20px 0;
+        gap: 10px;
+    }
+    #welcome > span {
+        max-width: 640px;
+        font-size: 0.9em;
+    }
+    #login-btn, #register-btn > button {
+        height: 40px;
+        width: 70px;
+        font-size: 0.95em;
+    }
+    #register, #login {
+        width: 80%;
+        padding: 1.6rem;
+    }
+    .register-main {
+        padding: 0.0rem;
+    }
+    .all-posts {
+        font-size: 2.1em;
+        margin: 30px 0 10px 0;
+    }
+    #footer {
+        font-size: 1.1em;
+        font-weight: 100;
+        letter-spacing: 0.0rem;
+        padding: 5px;
+    }
+}
+@media (min-width: 370px) and (max-width: 615px) {
+   h1 {font-size: 2.4em}
+   header {grid-template-columns: 150px 1fr repeat(2, 80px); padding: 10px}
+   #welcome {
+        margin: 0 30px 0 30px;
+        padding: 40px 0 40px 0;
+        gap: 10px;
+    }
+    #welcome > span {
+        max-width: 640px;
+        font-size: 1.1em;
+    }
+    .all-posts {
+        font-size: 2.7em;
+        margin: 20px 0 10px 0;
+    }
+    #register, #login {
+        width: 80%;
+        padding: 1.6rem;
+    }
+    .register-main {
+        padding: 0.0rem;
+    }
+    #login-btn, #register-btn > button {
+        height: 50px;
+        width: 80px;
+        font-size: 1.1em;
+    }
+    #footer {
+        font-size: 1.3em;
+        font-weight: 100;
+        letter-spacing: 0.0rem;
+        padding: 10px;
+    }
+}
+@media (min-width: 615px) and (max-width: 1500px) {
+    h1 {font-size: 3.2em}
+    header {grid-template-columns: 250px 1fr repeat(2, 90px)}
+    #welcome {
+        margin: 0 30px 0 30px;
+        padding: 20px 0 20px 0;
+        gap: 15px;
+    }
+    #welcome > span {
+        max-width: 640px;
+        font-size: 1.3em;
+    }
+    .all-posts {
+        font-size: 3.5em;
+        margin: 30px 0 20px 0;
+    }
+    #footer {
+        font-size: 1.4em;
+        font-weight: 100;
+        letter-spacing: 0.05rem;
+        padding: 10px;
+    }
+ }
+@media (min-width: 1500px) and (max-width: 8000px) { /* Widescreen */
+   h1 {font-size: 4.2em}
+   header {grid-template-columns: 250px 1fr repeat(2, 200px)}
+   #welcome {
+        height: 300px;
+        margin: 0 40px 0 40px;
+        padding: 30px 0 30px 0;
+        gap: 20px;
+    }
+    #welcome > span {
+        max-width: 640px;
+        font-size: 1.7em;
+    }
+    .all-posts {
+        font-size: 5em;
+        margin: 50px 0 30px 0;
+    }
+    #login-btn, #register-btn > button {
+            height: 60px;
+            width: 180px;
+            font-size: 1.7em;
+    }
+    #footer {
+        font-size: 1.5em;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        padding: 15px;
     }
 }
