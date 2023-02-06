@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import './styles/style.css';
+import './styles/media.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Success from './components/Success';
