@@ -47,7 +47,7 @@ function Home() {
       <div id="content">
 
         { posts.map((post) => (
-          <div className="post">
+          <Link to={`/posts/${post._id}`} className="post">
             <h2>{post.title}</h2>
             <div className="content-snapshot">
               <p>
@@ -63,7 +63,7 @@ function Home() {
               <span className="author">waldorf</span>
               <div className="date">January 23, 2023</div>
             </div>
-          </div>
+          </Link>
         )) }
 
       </div>
