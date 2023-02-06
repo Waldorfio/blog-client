@@ -6,7 +6,13 @@ function Header(props) {
 
   return (
     <header>
-      <Link to="/"><h1>Wally&apos;s Blog</h1></Link>
+      <Link to="/">
+        <h1>
+          <span className="wallys">Wally&apos;s</span>
+          <br />
+          <span className="blog">Blog</span>
+        </h1>
+      </Link>
       <button type="button" id="login-btn" onClick={handleLogin}>Log in</button>
       <Link to="register" id="register-btn"><button type="button">Register</button></Link>
     </header>

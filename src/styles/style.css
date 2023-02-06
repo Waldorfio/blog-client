@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/onramp');
 * {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'ONRAMP', sans-serif;
     text-rendering: optimizeLegibility; /* For safari */
 }
 body,html {
@@ -14,6 +16,24 @@ a {    /* Removes default styling for links, and React Links */
 }
 /*–––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
+/* VARIABLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root { /* Defining dark mode variables */
+    --text: white;
+    --bgColor1: #5cdb95;
+    --bgColor2: #05386b;
+
+    --header: #5cdb95;
+    --header-text: #05386b;
+
+    --footer: #05386b;
+    --footer-text: white;
+
+    --font1: 'Poppins', sans-serif;
+    --font2: 'ONRAMP', sans-serif;
+}
+
 /* APP GRID
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .App {
@@ -22,6 +42,8 @@ a {    /* Removes default styling for links, and React Links */
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
     grid-template-areas: "head" "main" "foot";
+    background-color: var(--bgColor1);
+    color: var(--text);
 }
 #backdrop-shadow {
     position: fixed;
@@ -38,24 +60,26 @@ header, main, footer {z-index: 0}
 /* HEADER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1 {
-    font-weight: 700;
+    font-weight: 00;
+    font-size: 3.6em;
+    text-align: center;
 }
-h1:hover {
-    text-decoration: underline;
-}
+.wallys {font-weight: 800}
+.blog {font-weight: 100}
 header {
     display: grid;
-    grid-template-columns: 1fr repeat(2, 90px);
+    grid-template-columns: 250px 1fr repeat(2, 90px);
     gap: 10px;
     align-items: center;
 
     position: sticky;
-    background-color: #fafafa;
+    background-color: var(--header);
+    color: var(--header-text);
     padding: 30px;
-    padding-left: 40px;
+    padding-right: 60px;
     text-align: left;
     user-select: none;
-    border-bottom: 1px solid rgb(185, 185, 185);
+    border-bottom: 1px solid var(--bgColor2);
 }
 #login-btn, #register-btn > button {
     width: 360px;
@@ -65,8 +89,8 @@ header {
     text-align: center;
     letter-spacing: 0.7px;
     border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.3em;
+    font-weight: 100;
     cursor: pointer;
     width: 100%;
     padding: 7px;
@@ -75,24 +99,25 @@ header {
     margin-right: 7px;
     background-color: #e9ecf0;
     color: #1859c9;
-    border: 1px solid #1859c9;
+    border: 2px solid #1859c9;
     transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 #register-btn > button:hover {
     background-color: #1859c9;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 #login-btn {
+    grid-column: 3/4;
     background-color: #1859c9;
     color: white;
-    border: 1px solid #1859c9;
+    border: 2px solid white;
     transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 #login-btn:hover {
     background-color: #e9ecf0;
     color: #1859c9;
-    border: 1px solid #1859c9;
+    border: 2px solid #1859c9;
 }
 
 /* MAIN
@@ -103,11 +128,16 @@ header {
     justify-items: center;
     height: 200px;
     margin: 30px;
-    border-bottom: 1px solid rgb(190, 190, 190);
+    border-bottom: 1px solid #05386b;
+    color: var(--welcome-text);
+    font-size: 2.0em;
+    font-weight: 100;
+    color: var(--bgColor2);
 }
 .all-posts {
+    letter-spacing: 0.2rem;
     text-align: center;
-    font-size: 2.0em;
+    font-size: 3.3em;
     user-select: none;
 }
 #content {
@@ -122,31 +152,43 @@ header {
 }
 .post, .msg {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 40px 45px 50px;
     grid-template-columns: 100px 1fr;
     align-items: center;
 
-    border: 1px solid #ddd;
+    border: 2px dotted var(--bgColor2);
+    border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     transition: background-color 0.5s, border 0.5s;
 
-    width: 300px;
+    width: 260px;
+
+    color: var(--bgColor2);;
 }
 .post:hover, .msg:hover {
     background-color: rgb(230, 230, 230);
-    border: 1px solid rgb(145, 145, 145);
+    border: 2px dotted var(--bgColor2);
+    border-radius: 10px;
+}
+.post:hover h2, .msg:hover h2,
+.post:hover .date, .msg:hover .date {
+    color: var(--bgColor2);
 }
 .post > h2, .msg > h2 {
     grid-column: 1/3;
     margin: 0;
-    font-size: 24px;
+    font-size: 2.1em;
+    font-weight: 500;
+    color: var(--text);
+
+    transition: color 0.6s;
 }
 .post > h2:hover, .msg > h2:hover {
-    text-decoration: underline;
     cursor: pointer;
 }
 .content-snapshot, .msg-snapshot {
+    font-size: 1.1em;
     grid-column: 1/3;
     grid-row: 2/3;
 }
@@ -174,18 +216,29 @@ header {
     position: relative;
     top: 12px;
     right: 9px;
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: 500;
     color: red;
 }
-.like-count {
-    cursor: pointer;
-}
+.like-count {cursor: pointer}
 .like-count > .material-symbols-outlined {
     font-weight: 200;
-    font-size: 36px;
+    font-size: 24px;
     color: #3b5998;
-    border: 3px solid #3b5998;
+    border: 2px solid #3b5998;
+    border-radius: 50%;
+    padding: 5px;
+}
+.like-count > .material-symbols-outlined:hover {
+    color: var(--bgColor1);
+    border: 3px solid var(--bgColor1);
+    font-weight: 700;
+}
+.msg-count > .material-symbols-outlined {
+    font-weight: 200;
+    font-size: 24px;
+
+    border: 2px solid var(--bgColor2);
     border-radius: 50%;
     padding: 5px;
 }
@@ -197,11 +250,16 @@ header {
     justify-items: end;
 }
 .author {
-    font-weight: bold;
+    color: var(--bgColor2);
+    font-weight: 00;
+    font-size: 1.4em;
 }
 .date {
-    color: #999;
+    color: var(--text);
+    font-weight: 100;
+    font-size: 1.1em;
     user-select: none;
+    transition: color 0.6s;
 }
 
 /* POST PAGE
@@ -278,6 +336,7 @@ header {
     background: #bd3937;
 }
 #register, #login {
+    color: var(--bgColor2);
     max-width: 430px;
     width: 100%;
     background: #fff;
@@ -308,7 +367,7 @@ h3 {
 }
 .user-form > a {
     font-size: 16px;
-    color: #009579;
+    color: var(--bgColor1);
     text-decoration: none;
 }
 .user-form > a:hover {
@@ -316,10 +375,10 @@ h3 {
 }
 .user-form > input[type='submit'] {
     color: #fff;
-    background: #009579;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    background: var(--bgColor1);
+    font-size: 2.1rem;
+    font-weight: 100;
+    letter-spacing: 2px;
     margin-top: 1.7rem;
     cursor: pointer;
     transition: 0.3s;
@@ -353,10 +412,11 @@ h3 {
     border-radius: 7px;
     box-shadow: 0 11px 40px rgba(0,0,0,0.3);
     background-color: white;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 15px 10px 15px;
 }
 .success-msg {
-    font-size: 1.1em;
+    color: var(--bgColor2);
+    font-size: 1.4em;
     font-weight: 500;
 }
 .tick {
@@ -365,7 +425,7 @@ h3 {
     margin: 0 auto;
     border-radius: 50%;
     z-index: 9;
-    background: #82ce34;
+    background: var(--bgColor1);
     padding: 18px;
     text-align: center;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
@@ -379,10 +439,12 @@ h3 {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 #footer {
     display: grid;
-    background-color: #e0e0e0;
+    background-color: var(--footer);
     font-weight: 500;
-    color: rgb(0, 0, 0);
-    font-size: 1.1em;
+    color: var(--footer-text);
+    font-size: 1.4em;
+    font-weight: 100;
+    letter-spacing: 0.1rem;
     text-align: center;
     align-content: center;
     padding: 10px;
@@ -401,7 +463,7 @@ header, #login-btn, #register-btn, #welcome, .all-posts,
 #comment-noform, #register, #login, #backdrop-shadow, .success-popup {
     opacity: 0;
     visibility: hidden;
-    animation-duration: 0.7s;
+    animation-duration: 0.6s;
     animation-timing-function: cubic-bezier();
     animation-fill-mode: forwards;
     -webkit-animation-timing-function: cubic-bezier();
