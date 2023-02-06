@@ -790,6 +790,7 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         font-size: 3.5em;
         margin: 30px 0 20px 0;
     }
+    .signup {font-size: 1.1em}
     #detailed-post {padding: 30px 30px 30px 30px}
     #detailed-post > span {
         max-width: 700px;
@@ -813,18 +814,46 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
         gap: 20px;
     }
     #welcome > span {
-        max-width: 640px;
+        max-width: 610px;
         font-size: 1.7em;
     }
     .all-posts {
         font-size: 5em;
         margin: 50px 0 30px 0;
     }
-    #login-btn, #register-btn > button {
-            height: 60px;
-            width: 180px;
-            font-size: 1.7em;
+    #content {
+        grid-template-columns: repeat(auto-fill, minmax(410px, 1fr));
+        padding: 0 50px 0 50px;
     }
+    .post, .msg {
+        grid-template-rows: 40px 70px 60px;
+        grid-template-columns: 100px 1fr;
+        padding: 20px;
+        margin-bottom: 20px;
+        width: 360px;
+    }
+    .post > h2, .msg > h2 {
+        grid-column: 1/3;
+        margin: 0;
+        font-size: 2.7em;
+        font-weight: 500;
+    }
+    .content-snapshot, .msg-snapshot {font-size: 1.6em}
+    .content-snapshot > a {font-size: 0.9em}
+    .author {font-size: 1.7em}
+    .date {font-size: 1.5em}
+    .msg-number, .like-number {
+        font-size: 2.0em;
+        font-weight: 100;
+    }
+    #login-btn, #register-btn > button {
+            height: 55px;
+            width: 170px;
+            font-size: 2.1em;
+            letter-spacing: 0.01rem;
+    }
+    .signup {font-size: 1.2em}
+    .user-form > input {font-size: 1.7em}
     #detailed-post {
         padding: 30px 30px 30px 30px}
     #detailed-post > span {
@@ -833,9 +862,9 @@ header, .all-posts, #comment-form, #comment-noform {animation-name: slide-down}
     }
     #detailed-post > h2 {font-size: 4.5em}
     #footer {
-        font-size: 1.5em;
+        font-size: 1.7em;
         font-weight: 500;
-        letter-spacing: 0.1rem;
-        padding: 15px;
+        letter-spacing: 0.01rem;
+        padding: 20px;
     }
 }
