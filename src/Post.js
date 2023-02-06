@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState, useEffect } from 'react';
-import { useOutletContext, useParams, Link } from 'react-router-dom';
+import { useOutletContext, useParams } from 'react-router-dom';
+import dateFormat from 'dateformat';
 
 function Post() {
   const { id } = useParams(); // Extract post id from url
@@ -128,7 +129,7 @@ function Post() {
               <span className="material-symbols-outlined" onClick={(msg) => handleLikes}>thumb_up</span>
             </div>
             <div className="post-details">
-              <div className="date">{msg.date}</div>
+              <div className="date">{dateFormat(msg.date, "mmmm dS, yyyy")}</div>
             </div>
           </div>
         )) }
