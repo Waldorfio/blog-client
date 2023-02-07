@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import { Outlet } from 'react-router-dom';
 import './styles/style.css';
 import './styles/media.css';
@@ -54,17 +55,39 @@ function App() {
   }, []);
 
   // --------- LOGIN User ---------
-  const loginSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    setUser({
-      username: formData.get('username'),
-      password: formData.get('password'),
-    });
-    setLogIn(true); // set log in status to true
-    console.log('user logged in');
-    console.log(`username: ${user.username}`);
-    console.log(`password: ${user.password}`);
+  // const loginSubmit = (event) => {
+  //   event.preventDefault();
+  //   const formData = new FormData(event.target);
+  //   setUser({
+  //     username: formData.get('username'),
+  //     password: formData.get('password'),
+  //   });
+  //   setLogIn(true); // set log in status to true
+  //   console.log('user logged in');
+  //   console.log(`username: ${user.username}`);
+  //   console.log(`password: ${user.password}`);
+  // };
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post('https://blog-api-production-6aeb.up.railway.app/log-in', {
+        username,
+        password,
+      });
+      setLogIn(true); // set log in status to true
+      setUser({
+        username,
+        password,
+      });
+      console.log('Login Successful!');
+    } catch (err) {
+      console.error(err);
+      console.log('Login Failed!');
+    }
   };
 
   // --------- Login Popup Handlers ---------
@@ -117,18 +140,22 @@ function App() {
           <div className="cross" onClick={handleLogin}>
             <span className="material-symbols-outlined">cancel</span>
           </div>
-          <form className="user-form" onSubmit={loginSubmit} action="" method="post">
+          <form className="user-form" onSubmit={loginSubmit}>
             <input
               type="text"
               id="username"
               name="username"
               placeholder="Create a username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <input
               type="password"
               id="password"
               name="password"
               placeholder="Create a password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <input type="submit" value="Log In" />
           </form>
