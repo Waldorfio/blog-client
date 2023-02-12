@@ -60,7 +60,7 @@ The API has the following endpoints:
 4.	Open the CMS in your browser at `http://localhost:3001` and Client at `http://localhost:3000`
 
 ## Technologies Used
-- React with TypesScript for the front-end
+- React with JavaScript for the front-end
 - Node.js and Express.js for the back-end
 - MongoDB for the database
 - Webpack for building and bundling the application
